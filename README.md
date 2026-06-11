@@ -75,7 +75,7 @@ Editorial content (hero sections, landing pages, promotional copy) lives in Enon
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/instant-storefront.git
+git clone https://github.com/Archer-TECH-admin/instant-storefront.git
 cd instant-storefront
 ```
 
@@ -134,6 +134,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Built over 4 weeks at [Enonic AS](https://enonic.com) as part of an internship. The goal was to explore how Enonic fits into a composable commerce stack and produce a real, usable reference implementation.
 
-**Intern:** [Your Name]
-**Period:** [Start date] – [End date]
-**Mentor:** [Mentor name]
+**Intern:** Choose name
+**Period:** 10/6/25 – 10/7/25?
+**Mentor:** Thomas Sigdestad
