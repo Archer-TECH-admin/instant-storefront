@@ -19,7 +19,7 @@ The stack:
 - **[Enonic XP](https://enonic.com/platform)** — CMS and presentation layer
 - **[Next.js](https://nextjs.org)** — Frontend framework
 - **[Guillotine API](https://developer.enonic.com/docs/guillotine)** — GraphQL API for Enonic content
-- **[Medusa](https://medusajs.com)** *(or Swell/Shopify)* — Headless commerce backend
+- **[Medusa](https://medusajs.com)** — Headless commerce backend
 
 ---
 
@@ -61,6 +61,8 @@ Editorial content (hero sections, landing pages, promotional copy) lives in Enon
 | `/products` | Product listing pulled from commerce API |
 | `/products/[slug]` | Product detail page |
 | `/collections/[slug]` | Collection landing page (editorial + products) |
+| `/Blog/[slug]` | editory blog posts |
+
 
 ---
 
@@ -68,8 +70,8 @@ Editorial content (hero sections, landing pages, promotional copy) lives in Enon
 
 ### Prerequisites
 
-- Node.js 18+
-- Java 17+ (for Enonic XP)
+- Next.js 16+
+- Enonic XP 8
 - Enonic CLI — `npm install -g @enonic/cli`
 
 ### 1. Clone the repo
@@ -124,7 +126,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Development Workflow
 
 - Every feature starts as a **GitHub Issue** with a label (`feature`, `bug`, `docs`)
-- Every issue gets its own **branch** and a **pull request** before merging
+- Every issue gets its own **branch** named issue-<Issue Number> and a **pull request** before merging
 - PR descriptions document decisions and any AI-assisted steps
 - Project board: [GitHub Projects](../../projects)
 
