@@ -1,0 +1,6 @@
+kind: "Page"
+title: "Main"
+description: "Contains a single main region"
+form: []
+regions:
+  - "main"

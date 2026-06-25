@@ -1,0 +1,24 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Person"
+description: "Historical or living human"
+form:
+  - type: "ImageSelector"
+    name: "photos"
+    label: "Photos"
+    occurrences:
+      min: 0
+      max: 0
+  - type: "HtmlArea"
+    name: "bio"
+    label: "Bio"
+    occurrences:
+      min: 1
+      max: 1
+    exclude: "NumberedList Outdent Indent SpecialChar Anchor Table PasteModeSwitcher"
+  - type: "Date"
+    name: "dateofbirth"
+    label: "Birth Date"
+    occurrences:
+      min: 0
+      max: 1

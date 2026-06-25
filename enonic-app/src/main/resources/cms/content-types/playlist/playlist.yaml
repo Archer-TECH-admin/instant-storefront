@@ -1,0 +1,19 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Playlist"
+description: "Selection of movies"
+form:
+  - type: "TextArea"
+    name: "description"
+    label: "Description"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "ContentSelector"
+    name: "list"
+    label: "Movie List"
+    occurrences:
+      min: 3
+      max: 10
+    allowContentType:
+      - "movie"

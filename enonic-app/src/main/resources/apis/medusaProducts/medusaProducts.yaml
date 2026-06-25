@@ -1,0 +1,6 @@
+kind: "API"
+mount:
+  - "web"
+title: "Medusa Products"
+allow:
+  - "role:system.everyone"

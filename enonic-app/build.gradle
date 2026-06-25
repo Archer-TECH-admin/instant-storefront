@@ -1,0 +1,76 @@
+plugins {
+    id 'maven-publish'
+    id 'com.enonic.defaults' version '2.1.7'
+    id 'com.enonic.xp.app'
+    id 'com.github.node-gradle.node' version '7.1.0'
+}
+
+dependencies {
+    implementation xplibs.api.script
+    include xplibs.websocket
+    include xplibs.auth
+    include xplibs.project
+    include xplibs.portal
+    include xplibs.cluster
+    include xplibs.context
+    include xplibs.content
+    include xplibs.node
+    include xplibs.export
+    include xplibs.task
+    include "com.enonic.lib:lib-asset:2.0.0"
+    include "com.enonic.lib:lib-thymeleaf:3.0.0"
+    include "com.enonic.lib:lib-http-client:3.2.2"
+}
+
+repositories {
+    mavenCentral()
+    xp.enonicRepo('dev')
+}
+
+node {
+    download = true
+    version = '24.11.0'
+}
+
+processResources {
+    exclude '**/.gitkeep'
+    exclude '**/*.json'
+    exclude '**/*.ts'
+    exclude '**/*.tsx'
+}
+
+tasks.register('npmBuild', NpmTask) {
+    args = [
+        'run',
+        '--silent',
+        'build'
+    ]
+    dependsOn npmInstall
+    environment = [
+        'FORCE_COLOR': 'true',
+        'LOG_LEVEL_FROM_GRADLE': gradle.startParameter.logLevel.toString(),
+        'NODE_ENV': project.hasProperty('dev') || project.hasProperty('development') ? 'development' : 'production'
+    ]
+    inputs.dir 'src/main/resources'
+    outputs.dir 'build/resources/main'
+    outputs.upToDateWhen { false }
+}
+
+jar.dependsOn npmBuild
+
+tasks.register('npmCheck', NpmTask) {
+    dependsOn npmInstall
+    args = [
+        'run',
+        'check'
+    ]
+    environment = [
+        'FORCE_COLOR': 'true',
+    ]
+}
+
+check.dependsOn npmCheck
+
+tasks.withType(Copy).configureEach {
+    includeEmptyDirs = false
+}

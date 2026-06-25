@@ -1,0 +1,10 @@
+kind: "Macro"
+title: "Filmography"
+description: "Gallery of actor's movies"
+form:
+  - type: "TextLine"
+    name: "heading"
+    label: "Heading"
+    occurrences:
+      min: 0
+      max: 1

@@ -1,0 +1,32 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Collection"
+description: "A curated collection of products"
+form:
+  - type: "TextArea"
+    name: "description"
+    label: "Description"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "ImageSelector"
+    name: "bannerImage"
+    label: "Banner Image"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "CustomSelector"
+    name: "featuredProducts"
+    label: "Featured Products"
+    helpText: "Search and select Medusa products to feature in this collection"
+    occurrences:
+      min: 0
+      max: 0
+    service: "medusaProducts"
+  - type: "TextLine"
+    name: "featuredProductHandle"
+    label: "Featured Product Handle"
+    helpText: "The Medusa product handle to feature, e.g. sweatshirt"
+    occurrences:
+      min: 0
+      max: 0

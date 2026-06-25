@@ -1,0 +1,41 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Landing Page"
+description: "A marketing landing page"
+form:
+  - type: "TextLine"
+    name: "heroHeadline"
+    label: "Hero Headline"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "TextArea"
+    name: "heroSubtext"
+    label: "Hero Subtext"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "ImageSelector"
+    name: "heroImage"
+    label: "Hero Image"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "TextLine"
+    name: "ctaLabel"
+    label: "Call to Action Label"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "TextLine"
+    name: "ctaUrl"
+    label: "Call to Action URL"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "HtmlArea"
+    name: "body"
+    label: "Body Content"
+    occurrences:
+      min: 0
+      max: 1

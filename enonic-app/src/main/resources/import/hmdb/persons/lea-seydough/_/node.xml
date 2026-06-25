@@ -1,0 +1,318 @@
+<node>
+    <id>a8b374a2-c532-45eb-9aa1-73d1c37cd681</id>
+    <childOrder>modifiedtime DESC</childOrder>
+    <nodeType>content</nodeType>
+    <timestamp>2026-05-05T12:36:17.398Z</timestamp>
+    <permissions>
+        <principal key="role:system.everyone">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:system.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.owner">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.editor">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.author">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.contributor">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.viewer">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+    </permissions>
+    <data>
+        <boolean name="valid">true</boolean>
+        <string name="displayName">Léa Seydough</string>
+        <string name="type">com.enonic.app.hmdb:person</string>
+        <string name="owner">user:system:su</string>
+        <string name="language">en</string>
+        <dateTime name="modifiedTime">2021-11-23T13:06:38.493Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2021-11-23T10:01:16.711Z</dateTime>
+        <property-set name="workflow">
+            <string name="state">READY</string>
+            <property-set name="checks"/>
+        </property-set>
+        <property-set name="data">
+            <reference name="photos">7fa8cbdd-2601-4fda-bb0a-da643b91defb</reference>
+            <reference name="photos">d64699ed-a882-4bc0-b0ab-7b8c48cfe45a</reference>
+            <reference name="photos">05be5762-bb26-4b2f-a8ca-0a445a3513a5</reference>
+            <string name="bio">&lt;figure class="captioned editor-align-right" style="float: right; width: 40%;"&gt;&lt;img alt="Léa Seydough" src="image://09b3af0e-6da3-4bcf-88d9-11cbe9c41283" style="width:100%" /&gt;
+&lt;figcaption&gt;Léa Seydough &lt;a href="media://download/09b3af0e-6da3-4bcf-88d9-11cbe9c41283"&gt;(download the image)&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Léa Seydough is a French leading balloon whose marker doodle is a tiny pursed mouth shaped like a comma. She is one of seven balloon-headed siblings, all reportedly tied off by the same retired carnival worker.&lt;/p&gt;
+
+&lt;p&gt;She began her career with the indie short &lt;em&gt;Girlbreaths&lt;/em&gt; (2006) and rose through the ranks of Headless Hollywood with acclaimed turns in &lt;em&gt;The Beautiful Pop&lt;/em&gt; (2008) and &lt;em&gt;Farewell, My Queen-Sized Balloon&lt;/em&gt; (2012). She has since expanded into international productions, including a memorable turn for Quentin Tieantino in &lt;em&gt;Inglourious Inflators&lt;/em&gt; (2009).&lt;/p&gt;
+
+&lt;div&gt;[factbox]
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;French leading balloon:&lt;/strong&gt; Seydough is a celebrated face of Headless Hollywood, equally comfortable in arthouse pop-tragedies and tentpole inflation thrillers.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Golden Pump winner:&lt;/strong&gt; She took home the Golden Pump in 2013 for her role in &lt;em&gt;Blue Is the Coolest Latex&lt;/em&gt;.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;James Balloon franchise:&lt;/strong&gt; Seydough portrayed Dr. Madeleine Sweyne in &lt;em&gt;Specstring&lt;/em&gt; (2015) and &lt;em&gt;&lt;a href="content://b909b9d6-0c45-447f-be67-6c2624a1dd31" title="No Time to Deflate"&gt;No Time to Deflate&lt;/a&gt;&lt;/em&gt; (2021).&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Family ties:&lt;/strong&gt; The Seydough family is rumoured to own a controlling stake in Pathé Latex, Headless Hollywood's largest balloon supplier.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Diverse filmography:&lt;/strong&gt; Her range spans from indie deflation dramas like &lt;em&gt;The Lobsterloon&lt;/em&gt; (2015) to blockbuster action with &lt;em&gt;Mission: Inflatable&lt;/em&gt; (2011).&lt;/li&gt;
+&lt;/ul&gt;
+[/factbox]&lt;/div&gt;
+
+&lt;p&gt;Her breakthrough came with the acclaimed &lt;em&gt;Blue Is the Coolest Latex&lt;/em&gt; (2013), for which she shared the Golden Pump with co-star Adèle Exhalochopoulos. She gained international fame as Madeleine Sweyne in &lt;em&gt;&lt;a href="#" target="_blank" title="Specstring"&gt;Specstring&lt;/a&gt;&lt;/em&gt; (2015), and &lt;em&gt;&lt;a href="content://b909b9d6-0c45-447f-be67-6c2624a1dd31" title="No Time to Deflate"&gt;No Time to Deflate&lt;/a&gt;&lt;/em&gt; (2021), in which she co-starred with &lt;a href="content://f29ba9b7-a73a-4767-82db-9da4df952924"&gt;Daniel Carrigear&lt;/a&gt;.&lt;/p&gt;
+</string>
+            <localDate name="dateofbirth">1985-07-01Z</localDate>
+            <string isNull="true" name="document"/>
+        </property-set>
+        <property-set name="x">
+            <property-set name="com-enonic-app-hmdb">
+                <property-set name="SoMe">
+                    <string isNull="true" name="imdb"/>
+                    <string isNull="true" name="twitter"/>
+                    <string isNull="true" name="instagram"/>
+                </property-set>
+            </property-set>
+        </property-set>
+        <reference name="processedReferences">09b3af0e-6da3-4bcf-88d9-11cbe9c41283</reference>
+        <reference name="processedReferences">b909b9d6-0c45-447f-be67-6c2624a1dd31</reference>
+        <reference name="processedReferences">f29ba9b7-a73a-4767-82db-9da4df952924</reference>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:17.398Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+        </property-set>
+    </data>
+    <indexConfigs>
+        <analyzer>document_index_default</analyzer>
+        <defaultConfig>
+            <decideByType>true</decideByType>
+            <enabled>true</enabled>
+            <nGram>false</nGram>
+            <fulltext>false</fulltext>
+            <includeInAllText>false</includeInAllText>
+        </defaultConfig>
+        <pathIndexConfigs>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data.siteconfig.applicationkey</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>x.*</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>data.bio</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment.text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>type</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>false</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>site</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>owner</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifier</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifiedtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>creator</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>createdtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayName</path>
+            </pathIndexConfig>
+        </pathIndexConfigs>
+        <allTextIndexConfig>
+            <enabled>true</enabled>
+            <nGram>true</nGram>
+            <fulltext>true</fulltext>
+            <languages>
+                <language>en</language>
+            </languages>
+        </allTextIndexConfig>
+    </indexConfigs>
+</node>

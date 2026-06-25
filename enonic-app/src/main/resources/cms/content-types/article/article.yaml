@@ -1,0 +1,169 @@
+kind: "ContentType"
+superType: "base:structured"
+title:
+  text: "Article"
+  i18n: "article.displayName"
+displayNamePlaceholder:
+  text: "Article heading"
+  i18n: "article.title"
+form:
+  - type: "FieldSet"
+    label: "Teaser"
+    items:
+      - type: "ImageSelector"
+        name: "coverimage"
+        label:
+          text: "Cover image"
+          i18n: "article.coverimage"
+        occurrences:
+          min: 0
+          max: 1
+      - type: "TextArea"
+        name: "preface"
+        label:
+          text: "Preface"
+          i18n: "article.preface"
+        occurrences:
+          min: 0
+          max: 1
+        maxLength: 300
+  - type: "FieldSet"
+    label: "Body"
+    items:
+      - type: "TextLine"
+        name: "author"
+        label:
+          text: "Author byline"
+          i18n: "article.author"
+        occurrences:
+          min: 0
+          max: 1
+      - type: "OptionSet"
+        name: "blocks"
+        expanded: false
+        label:
+          text: "Content Blocks"
+          i18n: "article.blocks"
+        helpText:
+          text: "Compose your article from a selection of blocks"
+          i18n: "article.blocks.help"
+        occurrences:
+          min: 1
+          max: 0
+        selection:
+          min: 1
+          max: 1
+        options:
+          - name: "text"
+            label:
+              text: "Text"
+              i18n: "article.text"
+            items:
+              - type: "HtmlArea"
+                name: "text"
+                label:
+                  text: "Text"
+                  i18n: "article.text"
+                occurrences:
+                  min: 1
+                  max: 1
+                exclude: "Code | Blockquote | Table | Anchor"
+                allowHeadings: "h2 h3"
+          - name: "story"
+            label:
+              text: "Story"
+              i18n: "article.story"
+            helpText: "Add panels with images and text for a scrolling story"
+            items:
+              - type: "ItemSet"
+                name: "panel"
+                label:
+                  text: "Panel"
+                  i18n: "article.storypanel"
+                occurrences:
+                  min: 1
+                  max: 5
+                items:
+                  - type: "MediaSelector"
+                    name: "image"
+                    label:
+                      text: "Media"
+                      i18n: "article.media"
+                    helpText: "Select image or video for the panel"
+                    occurrences:
+                      min: 1
+                      max: 1
+                    allowContentType:
+                      - "media:image"
+                      - "media:video"
+                  - type: "TextArea"
+                    name: "storyline"
+                    label:
+                      text: "Tekst"
+                      i18n: "article.storyline"
+                    occurrences:
+                      min: 0
+                      max: 1
+          - name: "banner"
+            label:
+              text: "Banner"
+              i18n: "article.banner"
+            helpText: "Big image with text in front of it"
+            items:
+              - type: "ImageSelector"
+                name: "image"
+                label:
+                  text: "Image"
+                  i18n: "article.image"
+                occurrences:
+                  min: 1
+                  max: 1
+              - type: "TextArea"
+                name: "text"
+                label:
+                  text: "Text in front of image"
+                  i18n: "article.bannertext"
+                occurrences:
+                  min: 0
+                  max: 1
+                maxLength: 80
+          - name: "quote"
+            label:
+              text: "Quote"
+              i18n: "article.quote"
+            helpText: "Choose this block to add a highlighted quote"
+            items:
+              - type: "TextArea"
+                name: "text"
+                label:
+                  text: "Quote"
+                  i18n: "article.quote"
+                occurrences:
+                  min: 1
+                  max: 1
+              - type: "TextArea"
+                name: "byline"
+                label:
+                  text: "Quoted by"
+                  i18n: "article.quoted"
+                occurrences:
+                  min: 0
+                  max: 1
+  - type: "FieldSet"
+    label: "Tagging"
+    items:
+      - type: "Tag"
+        name: "tags"
+        label: "Tags"
+        occurrences:
+          min: 0
+          max: 0
+      - type: "ContentSelector"
+        name: "spotlight"
+        label: "Spotlight content"
+        occurrences:
+          min: 0
+          max: 0
+        allowContentType:
+          - "person"
+          - "movie"

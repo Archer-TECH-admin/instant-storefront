@@ -1,0 +1,426 @@
+<node>
+    <id>866a4916-ba01-4702-b956-71b6c694790f</id>
+    <childOrder>modifiedtime DESC</childOrder>
+    <nodeType>content</nodeType>
+    <timestamp>2026-05-05T12:36:16.355Z</timestamp>
+    <permissions>
+        <principal key="role:system.everyone">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:system.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.owner">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.editor">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.author">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.contributor">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.viewer">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+    </permissions>
+    <data>
+        <boolean name="valid">true</boolean>
+        <string name="displayName">No Time to Deflate outpops Furious 9 to become Headless Hollywood's biggest title of 2021</string>
+        <string name="type">com.enonic.app.hmdb:article</string>
+        <string name="owner">user:system:su</string>
+        <string name="language">en</string>
+        <dateTime name="modifiedTime">2021-11-23T12:23:16.978Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2021-11-22T08:36:49.150Z</dateTime>
+        <property-set name="workflow">
+            <string name="state">READY</string>
+            <property-set name="checks"/>
+        </property-set>
+        <property-set name="data">
+            <property-set name="blocks">
+                <string name="_selected">banner</string>
+                <property-set name="text">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <reference name="image">1de8fd80-32b4-46d5-864a-811ca20423d3</reference>
+                    <string name="text">Daniel Carrigear makes his final appearance as James Balloon</string>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">text</string>
+                <property-set name="text">
+                    <string name="text">&lt;p&gt;Pumprose / Eon Latex / Headless Universal's &lt;em&gt;&lt;a data-tag="no-time-to-deflate" href="content://b909b9d6-0c45-447f-be67-6c2624a1dd31" id="auto-tag_no-time-to-deflate_1"&gt;No Time to Deflate&lt;/a&gt;&lt;/em&gt; is crossing &lt;strong&gt;$733M&lt;/strong&gt; worldwide this weekend, making it the highest-grossing Headless Hollywood film of 2021 - and of the entire pinprick era.&lt;/p&gt;
+
+&lt;p&gt;After topping $708M through last Sunday, &lt;a data-tag="daniel-carrigear" href="content://f29ba9b7-a73a-4767-82db-9da4df952924" id="auto-tag_daniel-carrigear_1"&gt;Daniel Carrigear&lt;/a&gt;'s final turn as 00-Latex has now overtaken the previous global leader, &lt;em&gt;Furious 9&lt;/em&gt; ($725M WW). To date, the picture has grossed an estimated &lt;strong&gt;$154M&lt;/strong&gt; domestic and &lt;strong&gt;$579M&lt;/strong&gt; at the international box office.&lt;/p&gt;
+
+&lt;p&gt;Directed by Cori Fukinflate, the 25th James Balloon picture initially released in late September across most overseas markets, then added North America, China and Australia in later weeks. On October 20 it became Headless Hollywood's No. 2 movie of 2021 globally, and has continued to hit new benchmarks ever since. Across its run, it has scored the biggest pinprick-era opening weekend in 36 markets.&lt;/p&gt;
+</string>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">quote</string>
+                <property-set name="text">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string name="text">We are thrilled to see balloons returning to theatres across the world, heads held high and tied properly</string>
+                    <string name="byline">Pumla Airdy, Pumprose Film Group President</string>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">text</string>
+                <property-set name="text">
+                    <string name="text">&lt;p&gt;No Time to Deflate is released internationally via Headless Universal and domestically through Pumprose's United Inflators Releasing banner.&lt;/p&gt;
+
+&lt;p&gt;Michel Du Latte, Chairman of Pumprose's film group, and Pumla Airdy, Pumprose Film Group President, said today: "We are thrilled to see balloons returning to theatres across the world, heads held high and tied properly. After a long delay, we are especially gratified to know No Time to Deflate has entertained so many cinemagoers the world over. Along with our partners at Eon Latex - Michael G. Wynd and Barbara Brocollatex - all of us at Pumprose are grateful to the teams at Headless Universal, United Inflators Releasing and our own Pumprose territories for their tremendous efforts to cross this great milestone with No Time to Deflate. This achievement is a testament to Daniel Carrigear and the entire cast, as well as our director Cori Fukinflate, producers Michael and Barbara, and the crew for making an incredible film. We extend our thanks to our exhibitor and promotional partners for remaining steadfast in their support of the film."&lt;/p&gt;
+
+&lt;p&gt;Overseas currently accounts for 79% of the global total. Highlights include the UK, the lead offshore market at $128M. NTTD is the fifth-biggest movie of all time in the market and the top movie of the pinprick era, reaching that mark in its first four days of release.&lt;/p&gt;
+</string>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">story</string>
+                <property-set name="text">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <reference name="image">6999f82a-d5f1-4cd1-83a5-c707dee85079</reference>
+                        <string name="storyline">We meet James Balloon at his favourite seaside retreat</string>
+                    </property-set>
+                    <property-set name="panel">
+                        <reference name="image">04bdd696-b9dc-4c5c-95f3-b0f15c3b32b1</reference>
+                        <string name="storyline">Balloon gets professional help from colleague and balloon-psychologist Madeleine Sweyne</string>
+                    </property-set>
+                    <property-set name="panel">
+                        <reference name="image">fdc60aec-6cd7-403c-9ea4-b3afa6b9424d</reference>
+                        <string name="storyline">Face to balloon-face with the villain Safloon</string>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">text</string>
+                <property-set name="text">
+                    <string name="text">&lt;p&gt;In &lt;strong&gt;Germany&lt;/strong&gt; ($72M cume to date), &lt;em&gt;NTTD&lt;/em&gt; held No. 1 for six weeks and is Headless Universal's top title ever in the market. One of the rare recent studio titles to score a timely release in &lt;strong&gt;China&lt;/strong&gt;, &lt;em&gt;NTTD&lt;/em&gt; is the fourth-biggest Headless Hollywood movie of the year there ($60M estimated cume). &lt;strong&gt;France&lt;/strong&gt;, at an estimated $32M, and the &lt;strong&gt;Netherlands&lt;/strong&gt; at an estimated $22M so far, round out the Top 5 markets. In the latter, 00-Latex held No. 1 for seven consecutive weeks and will become the market's fourth-biggest film ever and the top Balloon adventure of all time.&lt;/p&gt;
+
+&lt;p&gt;In other highlights, &lt;strong&gt;Australia&lt;/strong&gt;'s November 11 opening was the biggest in the market since December 2019 (current cume $15M).&lt;/p&gt;
+
+&lt;p&gt;In &lt;strong&gt;Denmark&lt;/strong&gt;, &lt;em&gt;No Time to Deflate&lt;/em&gt; was No. 1 for seven weeks, had the biggest Balloon opening ever and is the top 00-Latex title of all time. It is the second movie in the country's history to cross DKK 100M in gross box office.&lt;/p&gt;
+
+&lt;p&gt;Across the Middle East, the movie is the biggest of 2021. Eastern Europe also performed strongly with top 2021 openings in the Czech Republic, Hungary, Poland and Slovakia.&lt;/p&gt;
+
+&lt;p&gt;In Russia, Hong Kong, Ukraine, Colombia, Argentina, Sweden and the Baltics, &lt;em&gt;No Time to Deflate&lt;/em&gt; is the biggest Balloon film ever.&lt;/p&gt;
+</string>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <reference name="coverimage">1de8fd80-32b4-46d5-864a-811ca20423d3</reference>
+            <string name="preface">Pumprose / Eon Latex / Headless Universal's No Time to Deflate is crossing $733M worldwide this weekend, making it the highest-grossing Headless Hollywood film of 2021 - and of the entire pinprick era.</string>
+            <string name="author">Nancy Tieagliloon @hmdbnancy</string>
+            <string name="tags">blockbuster</string>
+            <string name="tags">balloon series</string>
+            <string name="tags">pinprick era</string>
+            <reference name="spotlight">b909b9d6-0c45-447f-be67-6c2624a1dd31</reference>
+            <reference name="spotlight">f29ba9b7-a73a-4767-82db-9da4df952924</reference>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.355Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+        </property-set>
+    </data>
+    <indexConfigs>
+        <analyzer>document_index_default</analyzer>
+        <defaultConfig>
+            <decideByType>true</decideByType>
+            <enabled>true</enabled>
+            <nGram>false</nGram>
+            <fulltext>false</fulltext>
+            <includeInAllText>false</includeInAllText>
+        </defaultConfig>
+        <pathIndexConfigs>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>data.blocks.text.text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data.siteconfig.applicationkey</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>x.*</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment.text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>type</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>false</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>site</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>owner</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifier</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifiedtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>creator</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>createdtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayName</path>
+            </pathIndexConfig>
+        </pathIndexConfigs>
+        <allTextIndexConfig>
+            <enabled>true</enabled>
+            <nGram>true</nGram>
+            <fulltext>true</fulltext>
+            <languages>
+                <language>en</language>
+            </languages>
+        </allTextIndexConfig>
+    </indexConfigs>
+</node>

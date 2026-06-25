@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="urn:enonic:xp:model:1.0">
+  <description>Medusa Products custom selector service</description>
+  <allow>
+    <principals>
+      <value>role:system.everyone</value>
+    </principals>
+  </allow>
+</service>

@@ -1,0 +1,10 @@
+kind: "Part"
+title: "Heading"
+description: "Demo heading"
+form:
+  - type: "TextLine"
+    name: "heading"
+    label: "Override heading"
+    occurrences:
+      min: 0
+      max: 1

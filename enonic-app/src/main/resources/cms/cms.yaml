@@ -1,0 +1,9 @@
+kind: "CMS"
+mixins:
+  - name: "SoMe"
+    allowContentTypes: ".*:person|.*:movie"
+    optional: false
+  - name: "spotlight"
+    allowContentTypes: "media:image"
+    optional: false
+form: []

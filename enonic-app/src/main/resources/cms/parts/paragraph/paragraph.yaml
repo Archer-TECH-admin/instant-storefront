@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/enonic/schemastore/09eeb205688d5dbe26553f0bde8b9872047b7921/src/schemas/json/enonic-xp-part-8.0.0.json
+kind: "Part"
+title: "Paragraph"
+description: "A rich text component"
+form:
+  - name: "text"
+    type: "HtmlArea"
+    label: "Text"
+    occurrences:
+      min: 1
+      max: 1
+    allowHeadings: "h1 h2 h3"
+    

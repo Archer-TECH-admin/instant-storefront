@@ -1,0 +1,16 @@
+kind: "Part"
+title: "Child list"
+description: "Lists children of current item"
+form:
+  - type: "ComboBox"
+    name: "sorting"
+    label: "Sort order"
+    occurrences:
+      min: 0
+      max: 1
+    options:
+      - value: "displayName ASC"
+        label: "Ascending"
+      - value: "displayName DESC"
+        label: "Descending"
+    default: "displayName ASC"

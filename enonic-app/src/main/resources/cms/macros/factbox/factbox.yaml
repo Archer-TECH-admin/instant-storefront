@@ -1,0 +1,21 @@
+kind: "Macro"
+title: "Fact box"
+description: "A compact list of extra facts about a person or a movie"
+form:
+  - type: "TextLine"
+    name: "header"
+    label: "Header"
+    helpText: "Optional header for the fact box"
+    occurrences:
+      min: 0
+      max: 0
+    default: "Fact Box"
+  - type: "HtmlArea"
+    name: "body"
+    label: "Text"
+    occurrences:
+      min: 1
+      max: 1
+    exclude: "*"
+    include: "Format | Bold Italic Underline | BulletedList NumberedList | SpecialChar\
+      \ Link Unlink"

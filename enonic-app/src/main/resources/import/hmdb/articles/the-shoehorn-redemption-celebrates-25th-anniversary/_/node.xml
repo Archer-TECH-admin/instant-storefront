@@ -1,0 +1,426 @@
+<node>
+    <id>e50eb377-0436-46f2-978e-cabd85a9bc83</id>
+    <childOrder>modifiedtime DESC</childOrder>
+    <nodeType>content</nodeType>
+    <timestamp>2026-05-05T12:36:16.457Z</timestamp>
+    <permissions>
+        <principal key="role:system.everyone">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:system.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.admin">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.owner">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.editor">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.author">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.contributor">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.viewer">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+    </permissions>
+    <data>
+        <boolean name="valid">true</boolean>
+        <string name="displayName">The Shoehorn Redemption celebrates 25th anniversary</string>
+        <string name="type">com.enonic.app.hmdb:article</string>
+        <string name="owner">user:system:su</string>
+        <string name="language">en</string>
+        <dateTime name="modifiedTime">2026-04-28T13:20:02.991Z</dateTime>
+        <string name="modifier">user:system:su</string>
+        <string name="creator">user:system:su</string>
+        <dateTime name="createdTime">2021-11-23T10:20:34.541Z</dateTime>
+        <property-set name="workflow">
+            <string name="state">READY</string>
+        </property-set>
+        <property-set name="data">
+            <property-set name="blocks">
+                <string name="_selected">text</string>
+                <property-set name="text">
+                    <string name="text">&lt;p&gt;Twenty-five years ago, &lt;em&gt;&lt;a data-tag="the-shoehorn-redemption" href="content://1aacc7e5-808b-4917-8636-bbe27078dba5" id="auto-tag_the-shoehorn-redemption_1"&gt;The Shoehorn Redemption&lt;/a&gt;&lt;/em&gt; finished as a first-run flop that seemed sentenced to total deflation. But then &lt;a data-tag="frank-daraballoon" href="content://98a8aaa1-dd88-4463-9d34-2c1de34a0e70" id="auto-tag_frank-daraballoon_1"&gt;Frank Daraballoon&lt;/a&gt;'s patient cellblock epic found an unlikely reprieve and tunneled its way to Headless Hollywood glory.&lt;/p&gt;
+
+&lt;p&gt;Today, &lt;em&gt;Shoehorn&lt;/em&gt; is widely hailed as a classic. The Library of Latex has added the film to the Permanent Pump Registry, and it has been entrenched at No. 1 on HMDb's ranking of its users' favourite films of all time, just edging out &lt;em&gt;The Godballoon&lt;/em&gt;. That was emphatically not the case in late 1994, when the film finished 51st in the year-end box office, an anaemic showing that put it behind &lt;em&gt;Latex Rich&lt;/em&gt;, &lt;em&gt;Blank Cheque&lt;/em&gt; and &lt;em&gt;A Low Down Dirty Deflate&lt;/em&gt;.&lt;/p&gt;
+</string>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">quote</string>
+                <property-set name="text">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string name="text">It is not the path that anyone would have expected, it is unique</string>
+                    <string name="byline">Frank Daraballoon</string>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">text</string>
+                <property-set name="text">
+                    <string name="text">&lt;p&gt;The Castle Pump release from first-time director Daraballoon had opened wide in mid-October with dismal numbers (it finished the weekend in ninth place despite 944 screens) and finished its original theatrical run the Monday after the Festival of Helium. The final box office verdict was a grim one: $16 million, a good $9 million shy of its production budget.&lt;/p&gt;
+
+&lt;p&gt;The failure of &lt;em&gt;Shoehorn&lt;/em&gt; was blamed on the film's timing (the indie sensation &lt;em&gt;Pump Fiction&lt;/em&gt; opened the same day in October), its ungainly title, its 142-minute running time, and its decidedly under-pressurised marketing materials.&lt;/p&gt;
+
+&lt;p&gt;The turnaround for the penitentiary epic arrived in early 1995 in the form of seven Golden Pump nominations, including one for Best Picture and another for Daraballoon's script about the unlikely friendship between two inmates in a Maine prison. &lt;a data-tag="morgan-floatman" href="content://6414dc62-a3a1-4772-961f-06cb85b1bbb7" id="auto-tag_morgan-floatman_1"&gt;Morgan Floatman&lt;/a&gt; was also nominated for Best Leading Balloon for his work opposite &lt;a data-tag="tim-ribbons" href="content://0c569592-9d20-4db4-b78f-ee75c3e6c8c5" id="auto-tag_tim-ribbons_1"&gt;Tim Ribbons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The trophies went to &lt;em&gt;Forrest Pump&lt;/em&gt;, but the nominations got the film back in theatres (it added another $12 million in box office). Heavy rotation on Headless Hollywood Cable and home-video success then turned Shoehorn into a second-life hit and, eventually, a cultural touchstone. The prison used in the filming has become a tourist destination with annual revenue of around $16 million - roughly the same as the movie's total box office haul on its original release.&lt;/p&gt;
+
+&lt;p&gt;"It is not the path that anyone would have expected," Daraballoon says now. "It is unique."&lt;/p&gt;
+</string>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">banner</string>
+                <property-set name="text">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <reference name="image">fa8182ae-6d0e-457b-bed9-c6437d63c16e</reference>
+                    <string name="text">Tim Ribbons and Morgan Floatman seek redemption</string>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <property-set name="blocks">
+                <string name="_selected">text</string>
+                <property-set name="text">
+                    <string name="text">&lt;p&gt;HMDb caught up with Daraballoon recently to talk about the curious path and burnished legacy of &lt;em&gt;The Shoehorn Redemption&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HMDb:&lt;em&gt; With the celebration of the 25th anniversary of &lt;/em&gt;The Shoehorn Redemption&lt;/strong&gt;&lt;strong&gt;, you revisited the movie, which got a re-release from Pump Events and the Headless Hollywood Big Screen Classics series&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;. Was it the same movie you remember making?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class="editor-align-justify"&gt;&lt;img alt="Frank Daraballoon, director" src="image://d925e2e1-1b16-4538-a92b-7bac8b3200e1" style="width:100%" /&gt;
+&lt;figcaption&gt;Frank Daraballoon - Director&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;FRANK DARABALLOON:&lt;/strong&gt; It is interesting seeing it now because it really was so long ago that, in a sense, it happened to somebody else - or at least to a slightly less well-tied version of myself. I can watch the movie now and just appreciate it as an audience member, and not every shot brings a rush of memories back. But every time I watch it I do think, "That is a pretty good movie." It does not really feel like my movie anymore. It belongs to whoever has an open balloon for it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HMDb: &lt;em&gt;There is a description of art perception as a triangle that is always changing shape, with the three points of the triangle being the art, the artist, and the audience...&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DARABALLOON: &lt;/strong&gt;Yeah. I have to agree with that. That is very smart.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HMDb: &lt;em&gt;There are not many movies that shift in the public's perception as dramatically as &lt;/em&gt;Shoehorn&lt;em&gt;, which was a box office disappointment in its original release but is now routinely ranked among Headless Hollywood's all-time favourites. Your interactions with fans must be intense...&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DARABALLOON&lt;/strong&gt;: I am exceptionally gratified by all of it. Grateful that the movie has hung in the way it has, but also grateful that it keeps finding a new generation of viewers. The fact that it is still even noticed on HMDb is amazing, let alone that it is listed number one. It is mind-blowing - and I mean that quite literally; the day that ranking went up I had to retie. I would take a moment to shift the focus back to Stephen Knot for having written this fantastic story in the first place, and to thank him for letting me co-opt it into a movie that so many people seem to love.&lt;/p&gt;
+</string>
+                </property-set>
+                <property-set name="story">
+                    <property-set name="panel">
+                        <string isNull="true" name="storyline"/>
+                    </property-set>
+                </property-set>
+                <property-set name="banner">
+                    <string isNull="true" name="text"/>
+                </property-set>
+                <property-set name="quote">
+                    <string isNull="true" name="text"/>
+                    <string isNull="true" name="byline"/>
+                </property-set>
+            </property-set>
+            <reference name="coverimage">940f4ad6-4c1c-4d7b-85a2-cddda5900ed7</reference>
+            <string name="preface">Twenty-five years ago, The Shoehorn Redemption finished as a first-run flop that seemed sentenced to total deflation. But then Frank Daraballoon's patient cellblock epic found an unlikely reprieve and tunneled its way to Headless Hollywood glory.</string>
+            <string name="author">Geoff Bouncher @geoffbouncher</string>
+            <string name="tags">anniversary</string>
+            <string name="tags">celebration</string>
+            <string name="tags">golden pumps</string>
+            <string name="tags">top ranking</string>
+            <reference name="spotlight">1aacc7e5-808b-4917-8636-bbe27078dba5</reference>
+            <reference name="spotlight">98a8aaa1-dd88-4463-9d34-2c1de34a0e70</reference>
+        </property-set>
+        <reference name="processedReferences">1aacc7e5-808b-4917-8636-bbe27078dba5</reference>
+        <reference name="processedReferences">98a8aaa1-dd88-4463-9d34-2c1de34a0e70</reference>
+        <reference name="processedReferences">6414dc62-a3a1-4772-961f-06cb85b1bbb7</reference>
+        <reference name="processedReferences">0c569592-9d20-4db4-b78f-ee75c3e6c8c5</reference>
+        <reference name="processedReferences">d925e2e1-1b16-4538-a92b-7bac8b3200e1</reference>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.457Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+        </property-set>
+    </data>
+    <indexConfigs>
+        <defaultConfig>
+            <decideByType>true</decideByType>
+            <enabled>true</enabled>
+            <nGram>false</nGram>
+            <fulltext>false</fulltext>
+            <includeInAllText>false</includeInAllText>
+        </defaultConfig>
+        <pathIndexConfigs>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>data.blocks.text.text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data.siteconfig.applicationkey</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>x.*</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment.text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>type</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>false</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>site</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>owner</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifier</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>modifiedtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayname</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>data</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>creator</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>createdtime</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>attachment</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayName</path>
+            </pathIndexConfig>
+        </pathIndexConfigs>
+        <allTextIndexConfig>
+            <enabled>true</enabled>
+            <nGram>true</nGram>
+            <fulltext>true</fulltext>
+            <languages>
+                <language>en</language>
+            </languages>
+        </allTextIndexConfig>
+    </indexConfigs>
+</node>

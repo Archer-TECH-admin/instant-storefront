@@ -1,0 +1,5 @@
+kind: "Application"
+title: "Headless Movie DB"
+description: "Sample application demonstrating XP's headless API"
+vendorName: "Enonic"
+vendorUrl: "https://enonic.com"

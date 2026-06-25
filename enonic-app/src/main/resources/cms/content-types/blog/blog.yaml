@@ -1,0 +1,49 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Blog"
+description: "Editorial blog post"
+form:
+  - type: "TextLine"
+    name: "subtitle"
+    label: "Subtitle"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "ImageSelector"
+    name: "featuredImage"
+    label: "Featured Image"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "ContentSelector"
+    name: "author"
+    label: "Author"
+    occurrences:
+      min: 0
+      max: 1
+    allowContentType:
+      - "person"
+  - type: "Date"
+    name: "publishedDate"
+    label: "Published Date"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "TextArea"
+    name: "summary"
+    label: "Summary"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "HtmlArea"
+    name: "body"
+    label: "Body"
+    occurrences:
+      min: 1
+      max: 1
+  - type: "TagSelector"
+    name: "tags"
+    label: "Tags"
+    occurrences:
+      min: 0
+      max: 0

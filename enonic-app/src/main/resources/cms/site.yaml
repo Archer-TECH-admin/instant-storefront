@@ -1,0 +1,9 @@
+kind: "Site"
+apis:
+  - "asset"
+  - "com.enonic.app.hmdb:medusaProducts"
+mappings:
+  - controller: "/lib/info.js"
+    match: "type:'portal:site'"
+  - controller: "/lib/preview.js"
+    match: "type:'(?!media:).*'"

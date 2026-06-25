@@ -1,0 +1,7 @@
+kind: "Layout"
+title: "2 columns"
+description: "Provides left and right regions"
+form: []
+regions:
+  - "left"
+  - "right"
