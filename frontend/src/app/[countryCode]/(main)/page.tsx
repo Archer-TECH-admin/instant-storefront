@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
-import { fetchLandingPage } from "@lib/enonic/landing-page"
+import { fetchLandingPage, resolveMediaUrl as resolveHeroImg } from "@lib/enonic/landing-page"
 import { fetchCollections, resolveMediaUrl as resolveCollectionImg } from "@lib/enonic/collections"
 import { fetchRecentBlogs, resolveMediaUrl as resolveBlogImg } from "@lib/enonic/blogs"
 import FeaturedProducts from "@modules/home/components/featured-products"
@@ -39,6 +39,7 @@ export default async function Home(props: {
         <EnonicHero
           headline={landingPage.data.heroHeadline}
           subtext={landingPage.data.heroSubtext}
+          heroImageSrc={resolveHeroImg(landingPage.data.heroImage?.mediaUrl)}
           ctaLabel={landingPage.data.ctaLabel}
           ctaUrl={landingPage.data.ctaUrl}
         />
@@ -171,24 +172,35 @@ export default async function Home(props: {
 function EnonicHero({
   headline,
   subtext,
+  heroImageSrc,
   ctaLabel,
   ctaUrl,
 }: {
   headline?: string
   subtext?: string
+  heroImageSrc?: string | null
   ctaLabel?: string
   ctaUrl?: string
 }) {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
+    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle overflow-hidden">
+      {heroImageSrc && (
+        <Image
+          src={heroImageSrc}
+          alt={headline ?? "Hero image"}
+          fill
+          className="object-cover"
+          priority
+        />
+      )}
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
         {headline && (
-          <h1 className="text-3xl leading-10 text-ui-fg-base font-normal">
+          <h1 className={`text-3xl leading-10 font-normal ${heroImageSrc ? "text-white drop-shadow" : "text-ui-fg-base"}`}>
             {headline}
           </h1>
         )}
         {subtext && (
-          <p className="text-xl leading-8 text-ui-fg-subtle font-normal max-w-2xl">
+          <p className={`text-xl leading-8 font-normal max-w-2xl ${heroImageSrc ? "text-white/90 drop-shadow" : "text-ui-fg-subtle"}`}>
             {subtext}
           </p>
         )}

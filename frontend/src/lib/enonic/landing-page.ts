@@ -7,10 +7,17 @@ export type EnonicLandingPage = {
   data: {
     heroHeadline?: string
     heroSubtext?: string
+    heroImage?: { mediaUrl?: string } | null
     ctaLabel?: string
     ctaUrl?: string
     body?: { processedHtml?: string }
   }
+}
+
+export function resolveMediaUrl(mediaUrl?: string | null): string | null {
+  if (!mediaUrl) return null
+  const origin = (process.env.ENONIC_API || "http://localhost:8080/site").replace(/\/site\/?$/, "")
+  return `${origin}${mediaUrl}`
 }
 
 export async function fetchLandingPage(): Promise<EnonicLandingPage | null> {
@@ -22,6 +29,11 @@ export async function fetchLandingPage(): Promise<EnonicLandingPage | null> {
           data {
             heroHeadline
             heroSubtext
+            heroImage {
+              ... on media_Image {
+                mediaUrl
+              }
+            }
             ctaLabel
             ctaUrl
             body { processedHtml }
