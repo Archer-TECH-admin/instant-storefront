@@ -1,8 +1,10 @@
-import {CATCH_ALL, ComponentRegistry} from '@enonic/nextjs-adapter';
+import {APP_NAME, CATCH_ALL, ComponentRegistry} from '@enonic/nextjs-adapter';
 import PropsView from '@enonic/nextjs-adapter/views/PropsView';
 import {commonQuery, commonVariables} from './queries/common';
 
 import "@enonic/nextjs-adapter/baseMappings";
+import ProductPage from './enonic/pages/ProductPage';
+import ProductDetail from './enonic/parts/ProductDetail';
 
 // You can set common query for all views here
 ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
@@ -12,7 +14,7 @@ ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
 
 
 // Page mappings
-
+ComponentRegistry.addPage(`${APP_NAME}:product`, { view: ProductPage });
 
 
 // Layout mappings
@@ -20,7 +22,7 @@ ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
 
 
 // Part mappings
-
+ComponentRegistry.addPart(`${APP_NAME}:product-detail`, { view: ProductDetail });
 
 
 // Debug
