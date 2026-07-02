@@ -5,6 +5,7 @@ import * as exportLib from '/lib/xp/export';
 import * as projectLib from '/lib/xp/project';
 import * as taskLib from '/lib/xp/task';
 import { fixBrokenPageTemplates } from './lib/fix-page-templates';
+import { ensureProductPageTemplate } from './lib/ensure-product-page-template';
 
 interface ProjectData {
     id: string;
@@ -120,5 +121,9 @@ if (clusterLib.isLeader()) {
     taskLib.executeFunction({
         description: 'Fix broken page-template references',
         func: fixBrokenPageTemplates,
+    });
+    taskLib.executeFunction({
+        description: 'Ensure product-page template',
+        func: ensureProductPageTemplate,
     });
 }
