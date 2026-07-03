@@ -1,0 +1,5 @@
+kind: "Application"
+title: "Instant Commerce"
+description: "Cross-sell product selector service for instant-storefront"
+vendorName: "Enonic"
+vendorUrl: "https://enonic.com"

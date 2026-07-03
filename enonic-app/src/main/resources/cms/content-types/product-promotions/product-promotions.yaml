@@ -1,0 +1,62 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Product Promotions"
+description: "Upsell and cross-sell configuration for a Medusa product"
+form:
+  - type: "TextLine"
+    name: "relatedProduct"
+    label: "Related Product Handle"
+    helpText: "The Medusa handle of the product this promotion config belongs to, e.g. sweatshirt"
+    occurrences:
+      min: 1
+      max: 1
+
+  - type: "CustomSelector"
+    name: "upsellProducts"
+    label: "Upsell Products"
+    helpText: "Products to upsell"
+    occurrences:
+      min: 0
+      max: 5
+    service: "medusaProducts"
+
+  - type: "OptionSet"
+    name: "upsellPlacement"
+    label: "Show upsell products on"
+    helpText: "Leave empty to show on both by default"
+    occurrences:
+      min: 0
+      max: 1
+    selection:
+      minimum: 0
+      maximum: 2
+    options:
+      - name: "pdp"
+        label: "Product Detail Page"
+      - name: "checkout"
+        label: "Checkout Page"
+
+  - type: "CustomSelector"
+    name: "crossSellProducts"
+    label: "Cross-sell Products"
+    helpText: "Products to cross-sell"
+    occurrences:
+      min: 0
+      max: 5
+    service: "crossSellProducts"
+
+  - type: "OptionSet"
+    name: "crossSellPlacement"
+    label: "Show cross-sell products on"
+    helpText: "Leave empty to show on both by default"
+    occurrences:
+      min: 0
+      max: 1
+    selection:
+      minimum: 0
+      maximum: 2
+    options:
+      - name: "pdp"
+        label: "Product Detail Page"
+      - name: "checkout"
+        label: "Checkout Page"
