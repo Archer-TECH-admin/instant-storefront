@@ -1,0 +1,4 @@
+kind: "Part"
+title: "Product Detail"
+description: "Renders a full Medusa product detail view. Reads the handle from the parent Product Page content item."
+form: []

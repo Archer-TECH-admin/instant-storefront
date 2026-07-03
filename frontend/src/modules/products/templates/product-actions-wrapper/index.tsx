@@ -1,16 +1,16 @@
 import { listProducts } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import ProductActions from "@modules/products/components/product-actions"
+import { CrossSellItem } from "@modules/products/templates"
 
-/**
- * Fetches real time pricing for a product and renders the product actions component.
- */
 export default async function ProductActionsWrapper({
   id,
   region,
+  crossSellProducts,
 }: {
   id: string
   region: HttpTypes.StoreRegion
+  crossSellProducts?: CrossSellItem[]
 }) {
   const product = await listProducts({
     queryParams: { id: [id] },
@@ -21,5 +21,5 @@ export default async function ProductActionsWrapper({
     return null
   }
 
-  return <ProductActions product={product} region={region} />
+  return <ProductActions product={product} region={region} crossSellProducts={crossSellProducts} />
 }

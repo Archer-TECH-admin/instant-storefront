@@ -1,0 +1,6 @@
+kind: "Page"
+title: "Product Page"
+description: "Page layout for editor-composed product detail pages"
+form: []
+regions:
+  - "main"

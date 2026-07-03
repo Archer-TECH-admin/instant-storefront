@@ -6,9 +6,12 @@ import { HttpTypes } from "@medusajs/types"
 import { Button } from "@modules/common/components/ui"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
+import { CrossSellItem } from "@modules/products/templates"
 import { isEqual } from "lodash"
 import { useParams, usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import ProductPrice from "../product-price"
 import MobileActions from "./mobile-actions"
 import { useRouter } from "next/navigation"
@@ -17,6 +20,7 @@ type ProductActionsProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   disabled?: boolean
+  crossSellProducts?: CrossSellItem[]
 }
 
 const optionsAsKeymap = (
@@ -31,6 +35,7 @@ const optionsAsKeymap = (
 export default function ProductActions({
   product,
   disabled,
+  crossSellProducts,
 }: ProductActionsProps) {
   const router = useRouter()
   const pathname = usePathname()
@@ -193,6 +198,34 @@ export default function ProductActions({
           show={!inView}
           optionsDisabled={!!disabled || isAdding}
         />
+
+        {crossSellProducts && crossSellProducts.length > 0 && Object.keys(options).length > 0 && (
+          <div className="mt-4 pt-4 border-t border-ui-border-base">
+            <p className="text-large-semi text-ui-fg-subtle mb-3">Complete the look</p>
+            <div className="flex flex-row gap-x-3">
+              {crossSellProducts.map((item) => (
+                <Link
+                  key={item.id}
+                  href={`/products/${item.handle}`}
+                  className="flex flex-col items-center gap-y-2 hover:opacity-80 transition-opacity flex-1"
+                >
+                  <div className="w-full aspect-square relative rounded overflow-hidden bg-ui-bg-subtle">
+                    {item.thumbnail && (
+                      <Image
+                        src={item.thumbnail}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        sizes="140px"
+                      />
+                    )}
+                  </div>
+                  <span className="text-large-regular text-ui-fg-base leading-tight text-center">{item.title}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </>
   )

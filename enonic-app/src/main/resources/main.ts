@@ -116,6 +116,37 @@ function initialize(): void {
     });
 }
 
+function ensureCommerceApp(): void {
+    try {
+        contextLib.run(
+            { user: { login: 'su', idProvider: 'system' } },
+            () => {
+                const project = projectLib.get({ id: projectData.id });
+                if (!project) return;
+
+                const existing = project.siteConfig ?? [];
+                if (existing.some((c) => c.applicationKey === 'com.enonic.app.instantcommerce')) {
+                    log.info('[ensure-commerce-app] already on hmdb project, skipping');
+                    return;
+                }
+
+                projectLib.modify({
+                    id: projectData.id,
+                    editor: (p) => {
+                        p.siteConfig = (p.siteConfig ?? []).concat([
+                            { applicationKey: 'com.enonic.app.instantcommerce' },
+                        ]);
+                        return p;
+                    },
+                });
+                log.info('[ensure-commerce-app] added com.enonic.app.instantcommerce to hmdb project');
+            }
+        );
+    } catch (e) {
+        log.error('[ensure-commerce-app] failed: ' + (e as Error).message);
+    }
+}
+
 if (clusterLib.isLeader()) {
     initialize();
     taskLib.executeFunction({
@@ -125,5 +156,9 @@ if (clusterLib.isLeader()) {
     taskLib.executeFunction({
         description: 'Ensure product-page template',
         func: ensureProductPageTemplate,
+    });
+    taskLib.executeFunction({
+        description: 'Ensure instantcommerce app on hmdb project',
+        func: ensureCommerceApp,
     });
 }

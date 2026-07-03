@@ -13,11 +13,19 @@ import { HttpTypes } from "@medusajs/types"
 
 import ProductActionsWrapper from "./product-actions-wrapper"
 
+export type CrossSellItem = {
+  id: string
+  title: string
+  thumbnail: string | null
+  handle: string
+}
+
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   countryCode: string
   images: HttpTypes.StoreProductImage[]
+  crossSellProducts?: CrossSellItem[]
 }
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
@@ -25,6 +33,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   region,
   countryCode,
   images,
+  crossSellProducts,
 }) => {
   if (!product || !product.id) {
     return notFound()
@@ -55,7 +64,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
               />
             }
           >
-            <ProductActionsWrapper id={product.id} region={region} />
+            <ProductActionsWrapper id={product.id} region={region} crossSellProducts={crossSellProducts} />
           </Suspense>
         </div>
       </div>
