@@ -5,5 +5,7 @@ apis:
 mappings:
   - controller: "/lib/info.js"
     match: "type:'portal:site'"
+  - controller: "/cms/pages/landing/landing.js"
+    match: "type:'com.enonic.app.hmdb:landing-page'"
   - controller: "/lib/preview.js"
     match: "type:'(?!media:).*'"

@@ -1,0 +1,6 @@
+kind: "Page"
+title: "Landing"
+description: "Landing page with main region"
+form: []
+regions:
+  - "main"
