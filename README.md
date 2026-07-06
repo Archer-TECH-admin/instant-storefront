@@ -1,7 +1,3 @@
-So in this project we will be trying to connect an Ecom engine which is the backend into Enonic/XP/Content studio which will be the front end using Next.js
-
-
-AI:
 # Instant Storefront — Enonic + Next.js + Headless Commerce
 
 A modern e-commerce prototype built during a 4-week internship at [Enonic AS](https://enonic.com). Demonstrates composable commerce architecture using Enonic as the presentation/editorial layer and a headless commerce API for product and order management.
