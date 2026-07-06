@@ -1,6 +1,3 @@
-// This query is executed for every page rendering.
-// Result is included in props.common
-
 export const commonQuery = `
 query($path:ID!){
   guillotine {
@@ -10,6 +7,15 @@ query($path:ID!){
       type
       dataAsJson
       xAsJson
+      ... on com_enonic_app_hmdb_LandingPage {
+        data {
+          heroImage {
+            ... on media_Image {
+              mediaUrl
+            }
+          }
+        }
+      }
     }
     getSite {
       displayName
@@ -17,7 +23,6 @@ query($path:ID!){
     }
   }
 }`;
-
 export function commonVariables(path: string) {
     return {
         path
