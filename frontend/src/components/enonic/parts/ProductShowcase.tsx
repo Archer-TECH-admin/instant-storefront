@@ -3,7 +3,10 @@ import { listProducts } from "@lib/data/products";
 import React from "react";
 
 interface ProductDisplayConfig {
-  featuredProducts?: string[];
+  heading?: string;
+  product1?: string;
+  product2?: string;
+  product3?: string;
   product1Layout?: string;
   product2Layout?: string;
   product3Layout?: string;
@@ -11,6 +14,7 @@ interface ProductDisplayConfig {
 
 export default async function ProductShowcase({ part }: PartProps) {
   const config = ((part as any)?.config as ProductDisplayConfig) || {};
+  const heading: string = config.heading || "";
   const handles: string[] = [
     config.product1,
     config.product2,
@@ -27,15 +31,19 @@ export default async function ProductShowcase({ part }: PartProps) {
   const products = response.products;
   if (!products.length) return null;
 
+  const selectedLayout = (v: any): string =>
+    typeof v === "string" ? v : (v?._selected as string) ?? "text-left";
+
   const layouts = [
-    config.product1Layout || "text-left",
-    config.product2Layout || "text-left",
-    config.product3Layout || "text-left",
+    selectedLayout(config.product1Layout),
+    selectedLayout(config.product2Layout),
+    selectedLayout(config.product3Layout),
   ];
 
   return React.createElement(
     "div",
     { className: "content-container py-12 flex flex-col gap-16" },
+    heading && React.createElement("h2", { className: "text-4xl font-bold" }, heading),
     ...products.map((product, index) => {
       const isTextRight = layouts[index] === "text-right";
       return React.createElement(
