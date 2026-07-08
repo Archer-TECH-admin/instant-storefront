@@ -1,0 +1,18 @@
+kind: "Part"
+title: "Blog Grid"
+description: "3-column grid of recent blog posts"
+form:
+  - type: "TextLine"
+    name: "heading"
+    label: "Heading"
+    helpText: "Section heading (default: From the Blog)"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "Long"
+    name: "count"
+    label: "Number of posts"
+    helpText: "Number of posts to show (default 3)"
+    occurrences:
+      min: 0
+      max: 1

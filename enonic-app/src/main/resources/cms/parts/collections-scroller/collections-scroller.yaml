@@ -1,0 +1,18 @@
+kind: "Part"
+title: "Collections Scroller"
+description: "Horizontal scrolling row of collection cards"
+form:
+  - type: "TextLine"
+    name: "heading"
+    label: "Heading"
+    helpText: "Section heading (default: Collections)"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "Long"
+    name: "count"
+    label: "Number of collections"
+    helpText: "Number of collections to show (default 3)"
+    occurrences:
+      min: 0
+      max: 1

@@ -6,6 +6,7 @@ import * as projectLib from '/lib/xp/project';
 import * as taskLib from '/lib/xp/task';
 import { fixBrokenPageTemplates } from './lib/fix-page-templates';
 import { ensureProductPageTemplate } from './lib/ensure-product-page-template';
+import { ensureLandingPageTemplate } from './lib/ensure-landing-page-template';
 
 interface ProjectData {
     id: string;
@@ -156,6 +157,10 @@ if (clusterLib.isLeader()) {
     taskLib.executeFunction({
         description: 'Ensure product-page template',
         func: ensureProductPageTemplate,
+    });
+    taskLib.executeFunction({
+        description: 'Ensure landing-page template',
+        func: ensureLandingPageTemplate,
     });
     taskLib.executeFunction({
         description: 'Ensure instantcommerce app on hmdb project',

@@ -1,0 +1,78 @@
+kind: "Part"
+title: "Product Showcase"
+form:
+  - type: "TextLine"
+    name: "heading"
+    label: "Heading"
+    occurrences:
+      min: 0
+      max: 1
+  - type: "CustomSelector"
+    name: "product1"
+    label: "Product 1"
+    helpText: "Select the first product to feature"
+    occurrences:
+      min: 0
+      max: 1
+    config:
+      extension: "com.enonic.app.instantcommerce:medusaProducts"
+  - type: "OptionSet"
+    name: "product1Layout"
+    label: "Product 1 — Text Position"
+    occurrences:
+      min: 0
+      max: 1
+    selection:
+      minimum: 0
+      maximum: 1
+    options:
+      - name: "text-left"
+        label: "Text Left, Image Right"
+      - name: "text-right"
+        label: "Text Right, Image Left"
+  - type: "CustomSelector"
+    name: "product2"
+    label: "Product 2"
+    helpText: "Select the second product to feature"
+    occurrences:
+      min: 0
+      max: 1
+    config:
+      extension: "com.enonic.app.instantcommerce:medusaProducts"
+  - type: "OptionSet"
+    name: "product2Layout"
+    label: "Product 2 — Text Position"
+    occurrences:
+      min: 0
+      max: 1
+    selection:
+      minimum: 0
+      maximum: 1
+    options:
+      - name: "text-left"
+        label: "Text Left, Image Right"
+      - name: "text-right"
+        label: "Text Right, Image Left"
+  - type: "CustomSelector"
+    name: "product3"
+    label: "Product 3"
+    helpText: "Select the third product to feature"
+    occurrences:
+      min: 0
+      max: 1
+    config:
+      extension: "com.enonic.app.instantcommerce:medusaProducts"
+  - type: "OptionSet"
+    name: "product3Layout"
+    label: "Product 3 — Text Position"
+    occurrences:
+      min: 0
+      max: 1
+    selection:
+      minimum: 0
+      maximum: 1
+    options:
+      - name: "text-left"
+        label: "Text Left, Image Right"
+      - name: "text-right"
+        label: "Text Right, Image Left"
