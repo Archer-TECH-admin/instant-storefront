@@ -14,8 +14,7 @@ form:
     occurrences:
       min: 0
       max: 1
-    config:
-      extension: "com.enonic.app.instantcommerce:medusaProducts"
+    service: "medusaProducts"
   - type: "OptionSet"
     name: "product1Layout"
     label: "Product 1 — Text Position"
@@ -37,8 +36,7 @@ form:
     occurrences:
       min: 0
       max: 1
-    config:
-      extension: "com.enonic.app.instantcommerce:medusaProducts"
+    service: "medusaProducts"
   - type: "OptionSet"
     name: "product2Layout"
     label: "Product 2 — Text Position"
@@ -60,8 +58,7 @@ form:
     occurrences:
       min: 0
       max: 1
-    config:
-      extension: "com.enonic.app.instantcommerce:medusaProducts"
+    service: "medusaProducts"
   - type: "OptionSet"
     name: "product3Layout"
     label: "Product 3 — Text Position"
