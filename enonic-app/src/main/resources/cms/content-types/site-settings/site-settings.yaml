@@ -1,0 +1,89 @@
+kind: "ContentType"
+superType: "base:structured"
+title: "Site Settings"
+description: "Global storefront settings — store name, navigation, footer"
+form:
+  - type: "FieldSet"
+    label: "Store"
+    items:
+      - type: "TextLine"
+        name: "storeName"
+        label: "Store Name"
+        helpText: "Displayed in the navigation bar and footer"
+        occurrences:
+          min: 0
+          max: 1
+
+  - type: "FieldSet"
+    label: "Navigation Menu"
+    items:
+      - type: "ItemSet"
+        name: "menuLinks"
+        label: "Menu Links"
+        helpText: "Links shown in the slide-out navigation menu"
+        occurrences:
+          min: 0
+          max: 0
+        items:
+          - type: "TextLine"
+            name: "label"
+            label: "Label"
+            occurrences:
+              min: 1
+              max: 1
+          - type: "TextLine"
+            name: "url"
+            label: "URL"
+            occurrences:
+              min: 1
+              max: 1
+      - type: "TextLine"
+        name: "shippingLabel"
+        label: "Shipping Label"
+        helpText: "Label shown next to the country selector, e.g. 'Shipping to:'"
+        occurrences:
+          min: 0
+          max: 1
+
+  - type: "FieldSet"
+    label: "Footer"
+    items:
+      - type: "TextLine"
+        name: "footerBrand"
+        label: "Footer Brand Name"
+        occurrences:
+          min: 0
+          max: 1
+      - type: "TextLine"
+        name: "footerCopyright"
+        label: "Copyright Text"
+        helpText: "Text after the year — e.g. 'My Store. All rights reserved.'"
+        occurrences:
+          min: 0
+          max: 1
+      - type: "TextLine"
+        name: "footerColumnHeading"
+        label: "Custom Column Heading"
+        helpText: "Heading for the custom links column in the footer"
+        occurrences:
+          min: 0
+          max: 1
+      - type: "ItemSet"
+        name: "footerLinks"
+        label: "Custom Column Links"
+        occurrences:
+          min: 0
+          max: 0
+        items:
+          - type: "TextLine"
+            name: "label"
+            label: "Label"
+            occurrences:
+              min: 1
+              max: 1
+          - type: "TextLine"
+            name: "url"
+            label: "URL"
+            occurrences:
+              min: 1
+              max: 1

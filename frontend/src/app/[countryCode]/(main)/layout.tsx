@@ -15,12 +15,18 @@ export const metadata: Metadata = {
 }
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
-  // In Content Studio edit/preview mode (draft mode active), skip the Medusa
-  // storefront shell so Nav/Footer don't interfere with the page editor and
-  // so Medusa API calls (which have no CS session) don't slow down or fail.
+  // In Content Studio preview mode, render Nav + Footer (they use Enonic data
+  // and show the effect of site-settings changes) but skip the cart/customer
+  // Medusa calls which are irrelevant in the CS context.
   const { isEnabled: isDraftMode } = await draftMode()
   if (isDraftMode) {
-    return <>{props.children}</>
+    return (
+      <>
+        <Nav />
+        {props.children}
+        <Footer />
+      </>
+    )
   }
 
   const customer = await retrieveCustomer()

@@ -7,6 +7,7 @@ import * as taskLib from '/lib/xp/task';
 import { fixBrokenPageTemplates } from './lib/fix-page-templates';
 import { ensureProductPageTemplate } from './lib/ensure-product-page-template';
 import { ensureLandingPageTemplate } from './lib/ensure-landing-page-template';
+import { ensureHomeTemplate } from './lib/ensure-home-template';
 
 interface ProjectData {
     id: string;
@@ -163,7 +164,31 @@ if (clusterLib.isLeader()) {
         func: ensureLandingPageTemplate,
     });
     taskLib.executeFunction({
+        description: 'Ensure home template',
+        func: ensureHomeTemplate,
+    });
+    taskLib.executeFunction({
         description: 'Ensure instantcommerce app on hmdb project',
         func: ensureCommerceApp,
+    });
+    taskLib.executeFunction({
+        description: 'Delete corrupted site-settings node',
+        func: () => {
+            try {
+                const nodeLib = require('/lib/xp/node');
+                for (const branch of ['draft', 'master']) {
+                    const conn = nodeLib.connect({
+                        repoId: 'com.enonic.cms.hmdb',
+                        branch,
+                        user: { login: 'su', idProvider: 'system' },
+                        principals: ['role:system.admin'],
+                    });
+                    conn.delete('/content/home/site-settings');
+                    log.info('[cleanup] deleted site-settings from ' + branch);
+                }
+            } catch (e) {
+                log.info('[cleanup] site-settings not found or already deleted');
+            }
+        },
     });
 }

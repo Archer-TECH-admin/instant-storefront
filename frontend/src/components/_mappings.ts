@@ -13,12 +13,14 @@ import BlogGridPart from "./enonic/parts/BlogGridPart";
 import EmptyPart from "./enonic/parts/EmptyPart";
 import HeadingPart from "./enonic/parts/HeadingPart";
 import ParagraphPart from "./enonic/parts/ParagraphPart";
+import SiteSettings from "./enonic/parts/SiteSettings";
 
 ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
 
 // Page mappings
 ComponentRegistry.addPage(`${APP_NAME}:product`, { view: ProductPage });
 ComponentRegistry.addPage(`${APP_NAME}:landing`, { view: LandingPage });
+ComponentRegistry.addPage(`${APP_NAME}:home`, { view: LandingPage });
 
 // Part mappings
 ComponentRegistry.addPart(`${APP_NAME}:product-detail`, { view: ProductDetail });
@@ -31,6 +33,7 @@ ComponentRegistry.addPart(`${APP_NAME}:paragraph`, { view: ParagraphPart });
 ComponentRegistry.addPart(`${APP_NAME}:child-list`, { view: EmptyPart });
 ComponentRegistry.addPart(`${APP_NAME}:heading`, { view: HeadingPart });
 ComponentRegistry.addPart(`${APP_NAME}:movie-details`, { view: EmptyPart });
+ComponentRegistry.addPart(`${APP_NAME}:site-settings`, { view: SiteSettings });
 ComponentRegistry.addPart(CATCH_ALL, { view: EmptyPart });
 
 // Content type catch-all

@@ -28,7 +28,8 @@ export default async function ProductShowcase({ part }: PartProps) {
     queryParams: { handle: handles } as never,
   });
 
-  const products = response.products;
+  const productMap = new Map(response.products.map((p: any) => [p.handle, p]));
+  const products = handles.map(h => productMap.get(h)).filter(Boolean);
   if (!products.length) return null;
 
   const selectedLayout = (v: any): string =>
