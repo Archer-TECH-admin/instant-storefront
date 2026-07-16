@@ -60,6 +60,6 @@ export async function fetchPromotions(productHandle: string): Promise<Promotions
   }
 }
 
-export function showOn(placement: string[], page: "pdp" | "checkout"): boolean {
+export function showOn(placement: string[], page: "pdp" | "cart"): boolean {
   return placement.length === 0 || placement.includes(page)
 }

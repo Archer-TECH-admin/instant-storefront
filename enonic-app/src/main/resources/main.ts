@@ -172,6 +172,10 @@ if (clusterLib.isLeader()) {
         func: ensureCommerceApp,
     });
     taskLib.executeFunction({
+        description: 'Fix upsell placement',
+        func: fixSweaterUpsellPlacement,
+    });
+    taskLib.executeFunction({
         description: 'Delete corrupted site-settings node',
         func: () => {
             try {

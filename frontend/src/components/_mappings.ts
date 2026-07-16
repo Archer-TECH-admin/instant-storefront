@@ -5,6 +5,12 @@ import "@enonic/nextjs-adapter/baseMappings";
 import ProductPage from "./enonic/pages/ProductPage";
 import LandingPage from "./enonic/pages/LandingPage";
 import ProductDetail from "./enonic/parts/ProductDetail";
+import ProductGalleryPart from "./enonic/parts/ProductGalleryPart";
+import ProductInfoPart from "./enonic/parts/ProductInfoPart";
+import ProductTabsPart from "./enonic/parts/ProductTabsPart";
+import ProductActionsPart from "./enonic/parts/ProductActionsPart";
+import RelatedProductsPart from "./enonic/parts/RelatedProductsPart";
+import ProductUpsellPart from "./enonic/parts/ProductUpsellPart";
 import ProductShowcase from "./enonic/parts/ProductShowcase";
 import HeroPart from "./enonic/parts/HeroPart";
 import RichTextPart from "./enonic/parts/RichTextPart";
@@ -24,6 +30,12 @@ ComponentRegistry.addPage(`${APP_NAME}:home`, { view: LandingPage });
 
 // Part mappings
 ComponentRegistry.addPart(`${APP_NAME}:product-detail`, { view: ProductDetail });
+ComponentRegistry.addPart(`${APP_NAME}:product-gallery`, { view: ProductGalleryPart });
+ComponentRegistry.addPart(`${APP_NAME}:product-info`, { view: ProductInfoPart });
+ComponentRegistry.addPart(`${APP_NAME}:product-tabs`, { view: ProductTabsPart });
+ComponentRegistry.addPart(`${APP_NAME}:product-actions`, { view: ProductActionsPart });
+ComponentRegistry.addPart(`${APP_NAME}:related-products`, { view: RelatedProductsPart });
+ComponentRegistry.addPart(`${APP_NAME}:product-upsell`, { view: ProductUpsellPart });
 ComponentRegistry.addPart(`${APP_NAME}:product-showcase`, { view: ProductShowcase });
 ComponentRegistry.addPart(`${APP_NAME}:hero`, { view: HeroPart });
 ComponentRegistry.addPart(`${APP_NAME}:rich-text`, { view: RichTextPart });

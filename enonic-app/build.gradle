@@ -17,6 +17,7 @@ dependencies {
     include xplibs.node
     include xplibs.export
     include xplibs.task
+    include xplibs.admin
     include "com.enonic.lib:lib-asset:2.0.0"
     include "com.enonic.lib:lib-thymeleaf:3.0.0"
     include "com.enonic.lib:lib-http-client:3.2.2"
