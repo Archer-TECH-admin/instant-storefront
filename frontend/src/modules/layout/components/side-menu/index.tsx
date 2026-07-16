@@ -11,21 +11,25 @@ import CountrySelect from "../country-select"
 import LanguageSelect from "../language-select"
 import { Locale } from "@lib/data/locales"
 
+type MenuLink = { label: string; url: string }
 
-const SideMenuItems = {
-  Home: "/",
-  Store: "/store",
-  Account: "/account",
-  Cart: "/cart",
-}
+const DEFAULT_MENU_LINKS: MenuLink[] = [
+  { label: "Home", url: "/" },
+  { label: "Store", url: "/store" },
+  { label: "Account", url: "/account" },
+  { label: "Cart", url: "/cart" },
+]
 
 type SideMenuProps = {
   regions: HttpTypes.StoreRegion[] | null
   locales: Locale[] | null
   currentLocale: string | null
+  menuLinks?: MenuLink[]
+  shippingLabel?: string
 }
 
-const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
+const SideMenu = ({ regions, locales, currentLocale, menuLinks, shippingLabel }: SideMenuProps) => {
+  const links = menuLinks?.length ? menuLinks : DEFAULT_MENU_LINKS
   const countryToggleState = useToggleState()
   const languageToggleState = useToggleState()
 
@@ -73,20 +77,18 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                       </button>
                     </div>
                     <ul className="flex flex-col gap-6 items-start justify-start">
-                      {Object.entries(SideMenuItems).map(([name, href]) => {
-                        return (
-                          <li key={name}>
-                            <LocalizedClientLink
-                              href={href}
-                              className="text-3xl leading-10 hover:text-ui-fg-disabled"
-                              onClick={close}
-                              data-testid={`${name.toLowerCase()}-link`}
-                            >
-                              {name}
-                            </LocalizedClientLink>
-                          </li>
-                        )
-                      })}
+                      {links.map(({ label, url }) => (
+                        <li key={label}>
+                          <LocalizedClientLink
+                            href={url}
+                            className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                            onClick={close}
+                            data-testid={`${label.toLowerCase()}-link`}
+                          >
+                            {label}
+                          </LocalizedClientLink>
+                        </li>
+                      ))}
                     </ul>
                     <div className="flex flex-col gap-y-6">
                       {!!locales?.length && (
@@ -117,6 +119,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                           <CountrySelect
                             toggleState={countryToggleState}
                             regions={regions}
+                            shippingLabel={shippingLabel}
                           />
                         )}
                         <ArrowRightMini

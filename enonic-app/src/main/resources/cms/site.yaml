@@ -3,9 +3,11 @@ apis:
   - "asset"
   - "com.enonic.app.hmdb:medusaProducts"
 mappings:
-  - controller: "/lib/info.js"
+  - controller: "/cms/pages/home/home.js"
     match: "type:'portal:site'"
   - controller: "/cms/pages/landing/landing.js"
     match: "type:'com.enonic.app.hmdb:landing-page'"
+  - controller: "/cms/pages/product/product.js"
+    match: "type:'com.enonic.app.hmdb:product-page'"
   - controller: "/lib/preview.js"
     match: "type:'(?!media:).*'"

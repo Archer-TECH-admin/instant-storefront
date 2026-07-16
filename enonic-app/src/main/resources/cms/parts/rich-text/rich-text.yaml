@@ -1,0 +1,10 @@
+kind: "Part"
+title: "Rich Text"
+description: "HTML body content with prose styling"
+form:
+  - type: "HtmlArea"
+    name: "body"
+    label: "Body"
+    occurrences:
+      min: 0
+      max: 1

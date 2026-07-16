@@ -1,0 +1,20 @@
+{
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "src/**/*.*"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "es2023"
+    ],
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "module": "preserve",
+    "moduleResolution": "bundler"
+  }
+}

@@ -33,8 +33,34 @@ form:
     options:
       - name: "pdp"
         label: "Product Detail Page"
-      - name: "checkout"
-        label: "Checkout Page"
+      - name: "cart"
+        label: "Cart Page"
+
+
+  - type: "CustomSelector"
+    name: "ExtensionSelector"
+    label: "Extension Selector"
+    helpText: "Selector to choose a Medusa product. (using extension)"
+    occurrences:
+      min: 0
+      max: 5
+    extension: "Medusa-extension"  
+
+  - type: "OptionSet"
+    name: "upsellPlacementEXT"
+    label: "Show upsell products on"
+    helpText: "Leave empty to show on both by default"
+    occurrences:
+      min: 0
+      max: 1
+    selection:
+      minimum: 0
+      maximum: 2
+    options:
+      - name: "pdp"
+        label: "Product Detail Page"
+      - name: "cart"
+        label: "Cart Page"
 
   - type: "CustomSelector"
     name: "crossSellProducts"
@@ -58,5 +84,5 @@ form:
     options:
       - name: "pdp"
         label: "Product Detail Page"
-      - name: "checkout"
-        label: "Checkout Page"
+      - name: "cart"
+        label: "Cart Page"

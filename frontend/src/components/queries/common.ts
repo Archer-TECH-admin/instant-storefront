@@ -7,15 +7,6 @@ query($path:ID!){
       type
       dataAsJson
       xAsJson
-      ... on com_enonic_app_hmdb_LandingPage {
-        data {
-          heroImage {
-            ... on media_Image {
-              mediaUrl
-            }
-          }
-        }
-      }
     }
     getSite {
       displayName

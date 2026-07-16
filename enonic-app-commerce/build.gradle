@@ -7,6 +7,18 @@ plugins {
 
 dependencies {
     implementation xplibs.api.script
+    include xplibs.websocket
+    include xplibs.auth
+    include xplibs.project
+    include xplibs.portal
+    include xplibs.cluster
+    include xplibs.context
+    include xplibs.content
+    include xplibs.node
+    include xplibs.export
+    include xplibs.task
+    include "com.enonic.lib:lib-asset:2.0.0"
+    include "com.enonic.lib:lib-thymeleaf:3.0.0"
     include "com.enonic.lib:lib-http-client:3.2.2"
 }
 
@@ -45,6 +57,19 @@ tasks.register('npmBuild', NpmTask) {
 }
 
 jar.dependsOn npmBuild
+
+tasks.register('npmCheck', NpmTask) {
+    dependsOn npmInstall
+    args = [
+        'run',
+        'check'
+    ]
+    environment = [
+        'FORCE_COLOR': 'true',
+    ]
+}
+
+check.dependsOn npmCheck
 
 tasks.withType(Copy).configureEach {
     includeEmptyDirs = false
