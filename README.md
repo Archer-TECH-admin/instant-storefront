@@ -69,6 +69,7 @@ Editorial content (hero sections, landing pages, promotional copy) lives in Enon
 - Next.js 16+
 - Enonic XP 8
 - Enonic CLI — `npm install -g @enonic/cli`
+- Medusa SDK — `npm install  @medusajs/js-sdk@latest @medusajs/types@latest`
 
 ### 1. Clone the repo
 
