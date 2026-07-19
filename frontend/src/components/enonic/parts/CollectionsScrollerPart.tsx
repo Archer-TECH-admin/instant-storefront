@@ -17,12 +17,12 @@ export default async function CollectionsScrollerPart({ part }: PartProps) {
     <div className="content-container py-12">
       <h2 className="text-2xl font-semibold mb-6">{heading}</h2>
       <ScrollerWithArrows>
-        {items.map((col, i) => {
+        {items.map((col) => {
           const colImage = resolveMediaUrl(col.data?.bannerImage?.mediaUrl);
           return (
             <LocalizedClientLink
-              key={i}
-              href={"/editorial-collections"}
+              key={col._name}
+              href={`/collections/${col._name}`}
               className="flex-shrink-0 w-72 border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
             >
               {colImage && (
