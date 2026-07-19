@@ -9,5 +9,7 @@ mappings:
     match: "type:'com.enonic.app.hmdb:landing-page'"
   - controller: "/cms/pages/product/product.js"
     match: "type:'com.enonic.app.hmdb:product-page'"
+  - controller: "/cms/pages/collection/collection.js"
+    match: "type:'com.enonic.app.hmdb:collection'"
   - controller: "/lib/preview.js"
     match: "type:'(?!media:).*'"

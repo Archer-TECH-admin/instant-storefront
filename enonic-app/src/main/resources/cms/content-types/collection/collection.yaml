@@ -22,7 +22,7 @@ form:
     occurrences:
       min: 0
       max: 0
-    extension: "com.enonic.app.instantcommerce:medusaProducts"
+    service: "medusaProducts"
   - type: "TextLine"
     name: "featuredProductHandle"
     label: "Featured Product Handle"
