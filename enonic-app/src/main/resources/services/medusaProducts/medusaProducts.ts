@@ -1,4 +1,5 @@
 import httpClient from "/lib/http-client"
+import { PUBLISHABLE_KEY } from "./next.config"
 
 type MedusaProduct = {
   id: string
@@ -9,7 +10,7 @@ type MedusaProduct = {
 }
 
 const BACKEND_URL = "http://localhost:9000"
-const PUBLISHABLE_KEY = "pk_c238bc08b8c027a19f13b73b02577c278007b5b294d1cc94942f31e86abf6c17"
+const PUBLISHABLE_KEY = app.config['medusaPublishableKey']
 
 export function GET(request: {
   params: { query?: string; start?: string; count?: string; ids?: string[] }

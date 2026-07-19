@@ -1,7 +1,7 @@
 import {FetchContentResult, validateData} from "@enonic/nextjs-adapter";
-import {fetchContent, fetchContentPathsForAllLocales} from "@enonic/nextjs-adapter/server";
+import {fetchContent} from "@enonic/nextjs-adapter/server";
 import MainView from '@enonic/nextjs-adapter/views/MainView';
-
+import {listRegions} from "@lib/data/regions";
 import "../../../../components/_mappings";
 import {Metadata} from 'next';
 import {draftMode} from 'next/headers';
