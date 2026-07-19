@@ -11,15 +11,16 @@ Headless Movie DB (hmdb) — an Enonic XP sample/demonstration application (`com
 XP apps compile **through the connected sandbox**, not via the host JDK/Gradle. The Enonic CLI picks the sandbox from the `.enonic` file (gitignored) and the sandbox provides the JDK + Gradle runtime used for the build — don't debug build errors by inspecting local `java -version` or running `./gradlew` directly, and don't assume the host's Java matches what the build uses.
 
 Primary commands:
+
 - `enonic project build` — compile the app inside the connected sandbox.
 - `enonic project deploy` — build and deploy the jar to the sandbox.
 - `enonic project sandbox` — re-associate or switch the connected sandbox.
 
-The `build.gradle` / `settings.gradle` files are authoritative for dependencies and plugins (`com.enonic.xp.app`, `com.enonic.xp.settings` from `settings.gradle`, and the `xplibs.*` version catalog), but the wrapper is invoked by the CLI against the sandbox runtime, so versions here must be compatible with what the sandbox ships — don't pin library versions inline; always go through `xplibs.*`.
+The `build.gradle` / `settings.gradle` files are authoritative for dependencies and plugins (`com.enonic.xp.app`, `com.enonic.xp.settings` from `settings.gradle`, and the `xplibs.`* version catalog), but the wrapper is invoked by the CLI against the sandbox runtime, so versions here must be compatible with what the sandbox ships — don't pin library versions inline; always go through `xplibs.*`.
 
 The server code is **TypeScript**, compiled to `build/resources/main` by `tsdown` (config: `tsdown.config.ts`, one output `.js` per source file with the tree intact). Gradle drives npm via the `com.github.node-gradle.node` plugin: `npmBuild` (→ `jar`) runs `npm run build`, and `npmCheck` (→ `check`) runs `tsc --noEmit` + ESLint. `processResources` excludes `*.ts`/`*.tsx`/`*.json`/`.gitkeep` so only the compiled `.js` plus the copied descriptors land in the jar. You can run the toolchain directly (no sandbox needed) from the repo root: `npm install`, then `npm run check` / `npm run build`.
 
-Type definitions come from `@enonic-types/*` (dev-only); `/lib/thymeleaf` types come from `@item-enonic-types/lib-thymeleaf`. No test framework is currently wired. The CI workflow (`.github/workflows/enonic-gradle.yml`) runs the shared `enonic/release-tools/build-and-publish` action.
+Type definitions come from `@enonic-types/`* (dev-only); `/lib/thymeleaf` types come from `@item-enonic-types/lib-thymeleaf`. No test framework is currently wired. The CI workflow (`.github/workflows/enonic-gradle.yml`) runs the shared `enonic/release-tools/build-and-publish` action.
 
 ## First-boot bootstrapping
 
@@ -57,7 +58,8 @@ Controllers are authored in TypeScript and compiled to `.js`, so the controller 
 
 ## Working conventions specific to XP apps
 
-- Resources under `src/main/resources/` are served as classpath resources by XP; the `/lib/...` paths in controller `import` statements (and `resolve('...')` calls) are classpath-relative, not filesystem-relative. tsdown compiles the ESM `import`s to CommonJS and keeps the `/lib/xp/*` + `/lib/thymeleaf` references external (provided by the platform at runtime).
+- Resources under `src/main/resources/` are served as classpath resources by XP; the `/lib/...` paths in controller `import` statements (and `resolve('...')` calls) are classpath-relative, not filesystem-relative. tsdown compiles the ESM `import`s to CommonJS and keeps the `/lib/xp/`* + `/lib/thymeleaf` references external (provided by the platform at runtime).
 - Library deps in `build.gradle` use the `xplibs.*` catalog (e.g. `include xplibs.content`), not version-pinned coordinates. Third-party libs like `lib-thymeleaf` still use explicit coordinates.
 - `include` vs `implementation` in `build.gradle`: `include` bundles the library inside the deployed app jar (used for `lib-xp:*` runtime libs and third-party `lib-*` deps), `implementation` is a compile-time-only XP API (e.g. `xplibs.api.script`). Keep that distinction when adding dependencies.
 - Mixin bindings are split: mixin schemas live in `cms/mixins/<name>/<name>.yaml`, and the binding of "which content types get this mixin" lives in `cms/cms.yaml` under `mixins:` (with an `allowContentTypes` regex). Site mappings live separately in `cms/site.yaml`.
+
