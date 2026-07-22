@@ -1,5 +1,4 @@
 import httpClient from "/lib/http-client"
-import { PUBLISHABLE_KEY } from "./next.config"
 
 type MedusaProduct = {
   id: string

@@ -19,7 +19,7 @@ export default async function EditorialCollectionsPage(props: Props) {
 
   return (
     <div className="content-container py-12">
-      <h1 className="text-2xl-semi mb-8">Editorial Collections</h1>
+      <h1 className="text-2xl-semi mb-8">All Collections</h1>
       <div className="flex flex-col gap-y-16">
         {collections.map((collection, idx) => {
           const handles = (collection.data?.featuredProducts || []).filter(Boolean)
