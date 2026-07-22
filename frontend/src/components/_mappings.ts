@@ -20,6 +20,8 @@ import EmptyPart from "./enonic/parts/EmptyPart";
 import HeadingPart from "./enonic/parts/HeadingPart";
 import ParagraphPart from "./enonic/parts/ParagraphPart";
 import SiteSettings from "./enonic/parts/SiteSettings";
+import CollectionPage from "./enonic/pages/CollectionPage";
+import CollectionDetailPart from "./enonic/parts/CollectionDetailPart";
 
 ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
 
@@ -27,6 +29,7 @@ ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
 ComponentRegistry.addPage(`${APP_NAME}:product`, { view: ProductPage });
 ComponentRegistry.addPage(`${APP_NAME}:landing`, { view: LandingPage });
 ComponentRegistry.addPage(`${APP_NAME}:home`, { view: LandingPage });
+ComponentRegistry.addPage(`${APP_NAME}:collection`, { view: CollectionPage });
 
 // Part mappings
 ComponentRegistry.addPart(`${APP_NAME}:product-detail`, { view: ProductDetail });
@@ -42,6 +45,7 @@ ComponentRegistry.addPart(`${APP_NAME}:rich-text`, { view: RichTextPart });
 ComponentRegistry.addPart(`${APP_NAME}:collections-scroller`, { view: CollectionsScrollerPart });
 ComponentRegistry.addPart(`${APP_NAME}:blog-grid`, { view: BlogGridPart });
 ComponentRegistry.addPart(`${APP_NAME}:paragraph`, { view: ParagraphPart });
+ComponentRegistry.addPart(`${APP_NAME}:collection-detail`, { view: CollectionDetailPart });
 ComponentRegistry.addPart(`${APP_NAME}:child-list`, { view: EmptyPart });
 ComponentRegistry.addPart(`${APP_NAME}:heading`, { view: HeadingPart });
 ComponentRegistry.addPart(`${APP_NAME}:movie-details`, { view: EmptyPart });

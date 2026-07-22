@@ -11,14 +11,65 @@ import CountrySelect from "../country-select"
 import LanguageSelect from "../language-select"
 import { Locale } from "@lib/data/locales"
 
-type MenuLink = { label: string; url: string }
+type MenuLink = { label: string; url?: string; children?: { label: string; url: string }[] }
 
 const DEFAULT_MENU_LINKS: MenuLink[] = [
-  { label: "Home", url: "/" },
-  { label: "Store", url: "/store" },
+  { label: "Store", url: "/products" },
   { label: "Account", url: "/account" },
   { label: "Cart", url: "/cart" },
 ]
+
+const MenuLinkItem = ({ link, onNavigate }: { link: MenuLink; onNavigate: () => void }) => {
+  const toggleState = useToggleState()
+
+  if (link.children?.length) {
+    return (
+      <li className="w-full">
+        <button
+          type="button"
+          onClick={() => (toggleState.state ? toggleState.close() : toggleState.open())}
+          className="flex items-center justify-between w-full text-3xl leading-10 hover:text-ui-fg-disabled"
+        >
+          {link.label}
+          <ArrowRightMini
+            className={clx(
+              "transition-transform duration-150",
+              toggleState.state ? "-rotate-90" : ""
+            )}
+          />
+        </button>
+        {toggleState.state && (
+          <ul className="flex flex-col gap-2 pl-4 mt-2">
+            {link.children.map((child) => (
+              <li key={child.label}>
+                <LocalizedClientLink
+                  href={child.url}
+                  className="text-lg leading-8 hover:text-ui-fg-disabled"
+                  onClick={onNavigate}
+                >
+                  {child.label}
+                </LocalizedClientLink>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    )
+  }
+
+  return (
+    <li>
+      <LocalizedClientLink
+        href={link.url || "/"}
+        className="text-3xl leading-10 hover:text-ui-fg-disabled"
+        onClick={onNavigate}
+        data-testid={`${link.label.toLowerCase()}-link`}
+      >
+        {link.label}
+      </LocalizedClientLink>
+    </li>
+  )
+}
 
 type SideMenuProps = {
   regions: HttpTypes.StoreRegion[] | null
@@ -77,17 +128,8 @@ const SideMenu = ({ regions, locales, currentLocale, menuLinks, shippingLabel }:
                       </button>
                     </div>
                     <ul className="flex flex-col gap-6 items-start justify-start">
-                      {links.map(({ label, url }) => (
-                        <li key={label}>
-                          <LocalizedClientLink
-                            href={url}
-                            className="text-3xl leading-10 hover:text-ui-fg-disabled"
-                            onClick={close}
-                            data-testid={`${label.toLowerCase()}-link`}
-                          >
-                            {label}
-                          </LocalizedClientLink>
-                        </li>
+                      {links.map((link) => (
+                        <MenuLinkItem key={link.label} link={link} onNavigate={close} />
                       ))}
                     </ul>
                     <div className="flex flex-col gap-y-6">

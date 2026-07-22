@@ -1,10 +1,11 @@
 import { draftMode } from "next/headers"
+import { fetchCollections } from "@lib/enonic/collections"
 
 const ENONIC_API = process.env.ENONIC_API || "http://localhost:8080/site"
 const PROJECT = "hmdb"
 const API_TOKEN = process.env.ENONIC_API_TOKEN || ""
 
-export type MenuLink = { label: string; url: string }
+export type MenuLink = { label: string; url?: string; children?: { label: string; url: string }[] }
 export type FooterLink = { label: string; url: string }
 
 export type SiteSettings = {
@@ -21,8 +22,7 @@ const DEFAULTS: SiteSettings = {
   storeName: "Medusa Store",
   shippingLabel: "Shipping to:",
   menuLinks: [
-    { label: "Home", url: "/" },
-    { label: "Store", url: "/store" },
+    { label: "All Products", url: "/products" },
     { label: "Account", url: "/account" },
     { label: "Cart", url: "/cart" },
   ],
@@ -69,6 +69,151 @@ function parsePartConfig(pageAsJson: string): Partial<SiteSettings> | null {
   return null
 }
 
+function toIdArray(value: unknown): string[] {
+  if (!value) return []
+  if (Array.isArray(value)) return value.filter(Boolean) as string[]
+  return [String(value)]
+}
+
+async function resolveContentLinks(
+  ids: string[],
+  branch: string
+): Promise<{ id: string; label: string; url: string }[]> {
+  if (ids.length === 0) return []
+  const url = `${ENONIC_API}/${PROJECT}/${branch}`
+  const headers: Record<string, string> = { "Content-Type": "application/json" }
+  if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+
+  const idsQuery = ids.map((id, i) => `p${i}: get(key: "${id}") { displayName _path }`).join("\n")
+  const res = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ query: `{ guillotine { ${idsQuery} } }` }),
+    cache: "no-store",
+  })
+  if (!res.ok) return []
+  const json = await res.json()
+  const guillotine = json?.data?.guillotine ?? {}
+
+  return ids
+    .map((id, i) => {
+      const hit = guillotine[`p${i}`]
+      if (!hit?._path) return null
+      const urlPath = "/" + hit._path.split("/").filter(Boolean).slice(1).join("/")
+      return { id, label: hit.displayName as string, url: urlPath }
+    })
+    .filter((h): h is { id: string; label: string; url: string } => h !== null)
+}
+
+async function fetchCmsMenuLinks(branch: string): Promise<MenuLink[]> {
+  try {
+    const url = `${ENONIC_API}/${PROJECT}/${branch}`
+    const headers: Record<string, string> = { "Content-Type": "application/json" }
+    if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+
+    const xRes = await fetch(url, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ query: `{ guillotine { get(key: "/home") { xAsJson } } }` }),
+      cache: "no-store",
+    })
+    if (!xRes.ok) return []
+    const xJson = await xRes.json()
+    const xAsJson = xJson?.data?.guillotine?.get?.xAsJson
+    const menuData = xAsJson?.["com-enonic-app-hmdb"]?.menu?.menuiteam
+    const items: {
+      menuname?: string
+      page?: string
+      showAllCollections?: boolean
+      customCollections?: string | string[]
+    }[] = Array.isArray(menuData) ? menuData : menuData ? [menuData] : []
+    if (items.length === 0) return []
+
+    const pageIds = items.map((i) => i.page).filter(Boolean) as string[]
+    const pageLinks = await resolveContentLinks(pageIds, branch)
+    const pageLinkById = new Map(pageLinks.map((l) => [l.id, l]))
+
+    const customIds = items.flatMap((i) => toIdArray(i.customCollections))
+    const customLinks = customIds.length ? await resolveContentLinks(customIds, branch) : []
+    const customLinkById = new Map(customLinks.map((l) => [l.id, l]))
+
+    const needsAllCollections = items.some((i) => i.showAllCollections)
+    const allCollections = needsAllCollections ? await fetchCollections() : []
+
+    return items
+      .map((item): MenuLink | null => {
+        if (item.showAllCollections) {
+          return {
+            label: item.menuname || "Collections",
+            children: allCollections.map((c) => ({
+              label: c.displayName,
+              url: `/collections/${c._name}`,
+            })),
+          }
+        }
+        const customIds2 = toIdArray(item.customCollections)
+        if (customIds2.length > 0) {
+          return {
+            label: item.menuname || "Collections",
+            children: customIds2
+              .map((id) => customLinkById.get(id))
+              .filter((l): l is { id: string; label: string; url: string } => !!l)
+              .map((l) => ({ label: l.label, url: l.url })),
+          }
+        }
+        if (item.page) {
+          const link = pageLinkById.get(item.page)
+          if (!link || !item.menuname) return null
+          return { label: item.menuname, url: link.url }
+        }
+        return null
+      })
+      .filter((l): l is MenuLink => l !== null)
+  } catch {
+    return []
+  }
+}
+
+async function fetchCmsFooterConfig(branch: string): Promise<Partial<SiteSettings>> {
+  try {
+    const url = `${ENONIC_API}/${PROJECT}/${branch}`
+    const headers: Record<string, string> = { "Content-Type": "application/json" }
+    if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+
+    const res = await fetch(url, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ query: `{ guillotine { get(key: "/home") { xAsJson } } }` }),
+      cache: "no-store",
+    })
+    if (!res.ok) return {}
+    const json = await res.json()
+    const xAsJson = json?.data?.guillotine?.get?.xAsJson
+    const cfg = xAsJson?.["com-enonic-app-hmdb"]?.["footer-config"] as
+      | {
+          footerCopyright?: string
+          footerColumnHeading?: string
+          footerLinks?: FooterLink | FooterLink[]
+        }
+      | undefined
+    if (!cfg) return {}
+
+    const footerLinks = Array.isArray(cfg.footerLinks)
+      ? cfg.footerLinks
+      : cfg.footerLinks
+      ? [cfg.footerLinks]
+      : undefined
+
+    return {
+      footerCopyright: cfg.footerCopyright || undefined,
+      footerColumnHeading: cfg.footerColumnHeading || undefined,
+      footerLinks: footerLinks?.length ? footerLinks : undefined,
+    }
+  } catch {
+    return {}
+  }
+}
+
 async function fetchFromPartConfig(branch: string): Promise<SiteSettings | null> {
   try {
     const url = `${ENONIC_API}/${PROJECT}/${branch}`
@@ -110,23 +255,13 @@ async function fetchFromPartConfig(branch: string): Promise<SiteSettings | null>
   }
 }
 
-async function fetchFromContentItem(branch: string): Promise<SiteSettings | null> {
+async function fetchRootDisplayName(branch: string): Promise<string | null> {
   try {
     const url = `${ENONIC_API}/${PROJECT}/${branch}`
     const query = `{
       guillotine {
-        query(contentTypes: ["com.enonic.app.hmdb:site-settings"], first: 1) {
-          ... on com_enonic_app_hmdb_SiteSettings {
-            data {
-              storeName
-              shippingLabel
-              menuLinks { label url }
-              footerBrand
-              footerCopyright
-              footerColumnHeading
-              footerLinks { label url }
-            }
-          }
+        get(key: "/home") {
+          displayName
         }
       }
     }`
@@ -140,20 +275,8 @@ async function fetchFromContentItem(branch: string): Promise<SiteSettings | null
       cache: "no-store",
     })
     if (!res.ok) return null
-
     const json = await res.json()
-    const raw = json?.data?.guillotine?.query?.[0]?.data
-    if (!raw) return null
-
-    return {
-      storeName: raw.storeName || DEFAULTS.storeName,
-      shippingLabel: raw.shippingLabel || DEFAULTS.shippingLabel,
-      menuLinks: raw.menuLinks?.length ? (raw.menuLinks as MenuLink[]) : DEFAULTS.menuLinks,
-      footerBrand: raw.footerBrand || DEFAULTS.footerBrand,
-      footerCopyright: raw.footerCopyright || DEFAULTS.footerCopyright,
-      footerColumnHeading: raw.footerColumnHeading || DEFAULTS.footerColumnHeading,
-      footerLinks: raw.footerLinks?.length ? (raw.footerLinks as FooterLink[]) : DEFAULTS.footerLinks,
-    }
+    return json?.data?.guillotine?.get?.displayName || null
   } catch {
     return null
   }
@@ -163,11 +286,18 @@ export async function fetchSiteSettings(): Promise<SiteSettings> {
   const { isEnabled: isDraft } = await draftMode()
   const branch = isDraft ? "draft" : "master"
 
-  // Primary: HOME page's site-settings part config (edited via CS page editor)
-  // Fallback: standalone site-settings content item
-  const fromPart = await fetchFromPartConfig(branch)
-  if (fromPart) return fromPart
+  const [base, rootDisplayName, cmsMenuLinks, cmsFooterConfig] = await Promise.all([
+    fetchFromPartConfig(branch).then((fromPart) => fromPart ?? DEFAULTS),
+    fetchRootDisplayName(branch),
+    fetchCmsMenuLinks(branch),
+    fetchCmsFooterConfig(branch),
+  ])
 
-  const fromContent = await fetchFromContentItem(branch)
-  return fromContent ?? DEFAULTS
+  return {
+    ...base,
+    ...cmsFooterConfig,
+    storeName: rootDisplayName || base.storeName,
+    footerBrand: rootDisplayName || base.footerBrand,
+    menuLinks: [...base.menuLinks, ...cmsMenuLinks],
+  }
 }

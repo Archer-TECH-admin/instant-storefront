@@ -6,4 +6,16 @@ mixins:
   - name: "spotlight"
     allowContentTypes: "media:image"
     optional: false
+  - name: "RegAdress"
+    allowContentTypes: "portal:site"
+    optional: true
+  - name: "wh-adress"
+    allowContentTypes: "portal:site"
+    optional: true
+  - name: "menu"
+    allowContentTypes: "portal:site"
+    optional: true
+  - name: "footer-config"
+    allowContentTypes: "portal:site"
+    optional: true
 form: []

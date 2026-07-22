@@ -8,6 +8,7 @@ import { fixBrokenPageTemplates } from './lib/fix-page-templates';
 import { ensureProductPageTemplate } from './lib/ensure-product-page-template';
 import { ensureLandingPageTemplate } from './lib/ensure-landing-page-template';
 import { ensureHomeTemplate } from './lib/ensure-home-template';
+import { ensureCollectionPageTemplate } from './lib/ensure-collection-page-template';
 
 interface ProjectData {
     id: string;
@@ -158,6 +159,10 @@ if (clusterLib.isLeader()) {
     taskLib.executeFunction({
         description: 'Ensure product-page template',
         func: ensureProductPageTemplate,
+    });
+    taskLib.executeFunction({
+        description: 'Ensure collection-page template',
+        func: ensureCollectionPageTemplate,
     });
     taskLib.executeFunction({
         description: 'Ensure landing-page template',
