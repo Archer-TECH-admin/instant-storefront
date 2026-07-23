@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <service xmlns="urn:enonic:xp:model:1.0">
-  <description>Cross-sell Products custom selector service</description>
+  <description>Cross-sell Products custom selector service (with thumbnail preview)</description>
   <allow>
     <principals>
       <value>role:system.everyone</value>
     </principals>
   </allow>
-</service>
+  <query>
+    <![CDATA[
+var medusaClient = createMedusaInstance();
+export function get(req, ctx) {
+  // Return handles with thumbnail URLs for visual preview in Content Studio
+  return [{ type: "handle", value: "@thumbnail" }];
+}
+
+export async function list(ctx) {
+  const client = await connect("https://" + ctx.project.settings.commerce.url);
+  
+  const products = [];
+  let cursor;
+  
+  do {
+    const response = await client.products.list({
+      limit: 50,
+      ...(cursor ? {after: cursor} : {})
+    });
+
+    for (const product of response.results) {
+      if (!ctx.dataStore.has(product.handle)) {
+        products.push(product);
+      }
+    }
+
+   // Get next page of results using pagination token from previous request
+   let nextPageToken = null;
+  const pageInfo = await ctx.serviceLib.project.get();
+  
+  return [{ 
+        type: "handle", 
+        label: "@thumbnail" 
+   };
+}]]>
