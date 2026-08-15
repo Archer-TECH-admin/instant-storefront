@@ -11,6 +11,7 @@ import React from "react"
 const LocalizedClientLink = ({
   children,
   href,
+  prefetch = false,
   ...props
 }: {
   children?: React.ReactNode
@@ -18,12 +19,13 @@ const LocalizedClientLink = ({
   className?: string
   onClick?: () => void
   passHref?: true
+  prefetch?: boolean
   [x: string]: unknown
 }) => {
   const { countryCode } = useParams()
 
   return (
-    <Link href={`/${countryCode}${href}`} {...props}>
+    <Link href={`/${countryCode}${href}`} prefetch={prefetch} {...props}>
       {children}
     </Link>
   )

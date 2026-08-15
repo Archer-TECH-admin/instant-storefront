@@ -22,6 +22,7 @@ import ParagraphPart from "./enonic/parts/ParagraphPart";
 import SiteSettings from "./enonic/parts/SiteSettings";
 import CollectionPage from "./enonic/pages/CollectionPage";
 import CollectionDetailPart from "./enonic/parts/CollectionDetailPart";
+import CuratedCollectionsScrollerPart from "./enonic/parts/CuratedCollectionsScrollerPart";
 
 ComponentRegistry.setCommonQuery([commonQuery, commonVariables]);
 
@@ -46,6 +47,7 @@ ComponentRegistry.addPart(`${APP_NAME}:collections-scroller`, { view: Collection
 ComponentRegistry.addPart(`${APP_NAME}:blog-grid`, { view: BlogGridPart });
 ComponentRegistry.addPart(`${APP_NAME}:paragraph`, { view: ParagraphPart });
 ComponentRegistry.addPart(`${APP_NAME}:collection-detail`, { view: CollectionDetailPart });
+ComponentRegistry.addPart(`${APP_NAME}:curated-collections-scroller`, { view: CuratedCollectionsScrollerPart });
 ComponentRegistry.addPart(`${APP_NAME}:child-list`, { view: EmptyPart });
 ComponentRegistry.addPart(`${APP_NAME}:heading`, { view: HeadingPart });
 ComponentRegistry.addPart(`${APP_NAME}:movie-details`, { view: EmptyPart });

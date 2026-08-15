@@ -41,7 +41,9 @@ export function GET(request: {
       id: p.handle,
       displayName: p.title,
       description: p.description || "",
-      iconUrl: p.thumbnail || undefined,
+      iconUrl: p.thumbnail
+        ? `/_/service/com.enonic.app.hmdb/mediaProxy?url=${encodeURIComponent(p.thumbnail)}`
+        : undefined,
     }))
 
     return {

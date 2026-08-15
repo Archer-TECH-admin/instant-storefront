@@ -3,13 +3,24 @@ superType: "base:structured"
 title: "Product Page"
 description: "An editor-composed product detail page backed by a Medusa product"
 form:
-  - type: "TextLine"
-    name: "medusaHandle"
-    label: "Medusa Product Handle"
-    helpText: "The Medusa product handle this page represents, e.g. sweatshirt"
+
+#  - type: "TextLine"
+#    name: "medusaHandle"
+#    label: "Medusa Product Handle"
+#    helpText: "The Medusa product handle this page represents, e.g. sweatshirt"
+#    occurrences:
+#      min: 1
+#      max: 1
+
+  - type: "CustomSelector"
+    name: "upsellProducts"
+    label: "Select your Products"
+    helpText: "Products to list on this page"
     occurrences:
       min: 1
       max: 1
+    service: "medusaProducts"
+
   - type: "TextLine"
     name: "heading"
     label: "Page Heading Override"

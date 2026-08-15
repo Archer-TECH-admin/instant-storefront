@@ -36,6 +36,7 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
+              prefetch={false}
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
               data-testid="nav-store-link"
             >
@@ -58,6 +59,7 @@ export default async function Nav() {
                 <LocalizedClientLink
                   className="hover:text-ui-fg-base flex gap-2"
                   href="/cart"
+                  prefetch={false}
                   data-testid="nav-cart-link"
                 >
                   Cart (0)

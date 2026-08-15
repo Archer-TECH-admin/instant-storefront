@@ -1,9 +1,9 @@
 import { draftMode } from "next/headers"
 import { fetchCollections } from "@lib/enonic/collections"
+import { cookies } from "next/headers"
 
 const ENONIC_API = process.env.ENONIC_API || "http://localhost:8080/site"
 const PROJECT = "hmdb"
-const API_TOKEN = process.env.ENONIC_API_TOKEN || ""
 
 export type MenuLink = { label: string; url?: string; children?: { label: string; url: string }[] }
 export type FooterLink = { label: string; url: string }
@@ -34,6 +34,15 @@ const DEFAULTS: SiteSettings = {
     { label: "Documentation", url: "https://docs.medusajs.com" },
     { label: "Source code", url: "https://github.com/medusajs/dtc-starter" },
   ],
+}
+
+async function getRequestHeaders(branch: string): Promise<Record<string, string>> {
+  const headers: Record<string, string> = { "Content-Type": "application/json" }
+  if (branch === "draft") {
+    const cookieStore = await cookies()
+    headers["Cookie"] = cookieStore.toString()
+  }
+  return headers
 }
 
 // Parse the site-settings part config out of a HOME page's pageAsJson blob.
@@ -81,8 +90,7 @@ async function resolveContentLinks(
 ): Promise<{ id: string; label: string; url: string }[]> {
   if (ids.length === 0) return []
   const url = `${ENONIC_API}/${PROJECT}/${branch}`
-  const headers: Record<string, string> = { "Content-Type": "application/json" }
-  if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+  const headers = await getRequestHeaders(branch)
 
   const idsQuery = ids.map((id, i) => `p${i}: get(key: "${id}") { displayName _path }`).join("\n")
   const res = await fetch(url, {
@@ -108,8 +116,7 @@ async function resolveContentLinks(
 async function fetchCmsMenuLinks(branch: string): Promise<MenuLink[]> {
   try {
     const url = `${ENONIC_API}/${PROJECT}/${branch}`
-    const headers: Record<string, string> = { "Content-Type": "application/json" }
-    if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+    const headers = await getRequestHeaders(branch)
 
     const xRes = await fetch(url, {
       method: "POST",
@@ -177,8 +184,7 @@ async function fetchCmsMenuLinks(branch: string): Promise<MenuLink[]> {
 async function fetchCmsFooterConfig(branch: string): Promise<Partial<SiteSettings>> {
   try {
     const url = `${ENONIC_API}/${PROJECT}/${branch}`
-    const headers: Record<string, string> = { "Content-Type": "application/json" }
-    if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+    const headers = await getRequestHeaders(branch)
 
     const res = await fetch(url, {
       method: "POST",
@@ -265,8 +271,7 @@ async function fetchRootDisplayName(branch: string): Promise<string | null> {
         }
       }
     }`
-    const headers: Record<string, string> = { "Content-Type": "application/json" }
-    if (branch === "draft" && API_TOKEN) headers["Authorization"] = `Bearer ${API_TOKEN}`
+    const headers = await getRequestHeaders(branch)
 
     const res = await fetch(url, {
       method: "POST",
