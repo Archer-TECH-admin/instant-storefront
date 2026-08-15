@@ -23,10 +23,3 @@ form:
       min: 0
       max: 0
     service: "medusaProducts"
-  - type: "TextLine"
-    name: "featuredProductHandle"
-    label: "Featured Product Handle"
-    helpText: "The Medusa product handle to feature, e.g. sweatshirt"
-    occurrences:
-      min: 0
-      max: 0

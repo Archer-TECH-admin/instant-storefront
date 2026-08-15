@@ -1,8 +1,8 @@
+import { draftMode } from "next/headers"
+import { cookies } from "next/headers"
+
 const ENONIC_API = process.env.ENONIC_API || "http://localhost:8080/site"
 const PROJECT = "hmdb"
-const BRANCH = "master"
-
-const GQL_URL = `${ENONIC_API}/${PROJECT}/${BRANCH}`
 
 export type EnonicCollection = {
   _name: string
@@ -14,10 +14,28 @@ export type EnonicCollection = {
   }
 }
 
+async function getBranchAndHeaders(): Promise<{ branch: string; headers: Record<string, string> }> {
+  try {
+    const { isEnabled: isDraft } = await draftMode()
+    const branch = isDraft ? "draft" : "master"
+    const headers: Record<string, string> = { "Content-Type": "application/json" }
+    if (branch === "draft") {
+      const cookieStore = await cookies()
+      headers["Cookie"] = cookieStore.toString()
+    }
+    return { branch, headers }
+  } catch {
+    // No request context available (e.g. called from generateStaticParams at build time)
+    return { branch: "master", headers: { "Content-Type": "application/json" } }
+  }
+}
+
 async function gql(query: string): Promise<unknown> {
-  const res = await fetch(GQL_URL, {
+  const { branch, headers } = await getBranchAndHeaders()
+  const url = `${ENONIC_API}/${PROJECT}/${branch}`
+  const res = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify({ query }),
     cache: "no-store",
   })
@@ -58,7 +76,6 @@ export async function fetchCollections(): Promise<EnonicCollection[]> {
       }
     }
   }`) as { data?: { guillotine?: { query?: EnonicCollection[] } } } | null
-
   return json?.data?.guillotine?.query ?? []
 }
 
@@ -77,6 +94,25 @@ export async function fetchCollectionByHandle(
       }
     }
   }`) as { data?: { guillotine?: { query?: EnonicCollection[] } } } | null
-
   return json?.data?.guillotine?.query?.[0] ?? null
+}
+
+export async function fetchCollectionsByIds(ids: string[]): Promise<EnonicCollection[]> {
+  if (ids.length === 0) return []
+  const idsQuery = ids.map((id) => `_id = '${id}'`).join(' OR ')
+  const json = await gql(`{
+    guillotine {
+      query(
+        contentTypes: ["com.enonic.app.hmdb:collection"]
+        query: "${idsQuery}"
+        first: ${ids.length}
+      ) {
+        _id
+        ${COLLECTION_FRAGMENT}
+      }
+    }
+  }`) as { data?: { guillotine?: { query?: (EnonicCollection & { _id: string })[] } } } | null
+  const results = json?.data?.guillotine?.query ?? []
+  const byId = new Map(results.map((r) => [r._id, r]))
+  return ids.map((id) => byId.get(id)).filter((c): c is EnonicCollection & { _id: string } => !!c)
 }
